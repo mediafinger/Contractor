@@ -2,9 +2,11 @@
 
 %table
   %tr
-    %th I18n.t 'project.title'
-    %th I18n.t 'project.status'
-    %th I18n.t 'project.target_language'
+    %th= I18n.t('project.title')
+    %th= I18n.t('project.customer')
+    %th= I18n.t('project.status')
+    %th= I18n.t('project.source_language')
+    %th= I18n.t('project.target_language')
     %th
     %th
     %th
@@ -12,7 +14,9 @@
   - projects.each do |project|
     %tr
       %td= project.title
+      %td= project.customer_name
       %td= project.status
+      %td= project.source_language
       %td= project.target_language
       %td= link_to 'Show', project
       %td= link_to 'Edit', edit_project_path(project)

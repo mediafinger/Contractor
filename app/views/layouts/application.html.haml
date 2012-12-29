@@ -7,11 +7,13 @@
     = render 'shared/nav'
     
     .container
-
       .row
         .span12
           - flash.each do |key, value|
             = content_tag(:div, value, :class => "round flash #{key}")
+
+          - if true  
+            = render 'shared/admin' 
 
           %main
             = yield

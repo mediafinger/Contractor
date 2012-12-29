@@ -9,10 +9,11 @@ class CreateCustomersAndProjects < ActiveRecord::Migration
     end
 
     create_table :projects do |t|
+      t.integer :customer_id
       t.string :title
       t.string :status
       t.string :target_language
-      t.string :customer_id
+      t.string :source_language
 
       t.timestamps
     end

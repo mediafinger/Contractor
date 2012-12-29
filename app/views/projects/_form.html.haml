@@ -7,13 +7,19 @@
           %li= msg
 
   .field
-    = f.label :title
+    = f.label :customer_id, I18n.t('project.customer')
+    = f.select :customer_id, options_from_collection_for_select(customers, "id", "name") 
+  .field
+    = f.label :title, I18n.t('project.title')
     = f.text_field :title
   .field
-    = f.label :status
+    = f.label :status, I18n.t('project.status')
     = f.text_field :status
   .field
-    = f.label :target_language
+    = f.label :source_language, I18n.t('project.source_language')
+    = f.text_field :source_language
+  .field
+    = f.label :target_language, I18n.t('project.target_language')
     = f.text_field :target_language
   .actions
     = f.submit I18n.t('shared.save')

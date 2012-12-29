@@ -1,4 +1,8 @@
 en:
+  admin:
+    customers: Alle Kunden
+    projects: Alle Projekte
+    project_new: Neues Projekt
   pages:
     calendar: Verfügbarkeit
     contact: Kontakt
@@ -9,9 +13,14 @@ en:
     prices: Sprachen und Preise
   project:
     all: Alle Projekte
+    customer: Projekt-Kunde
     edit: Projekt bearbeiten
     new:  Projekt anlegen
     show: Projekt-Details
+    status: Projekt-Status
+    source_language: Ausgangssprache
+    target_language: Zielsprache
+    title: Projekt-Titel
   shared:
     back: zurück
     edit: bearbeiten
