@@ -1,1 +1,19 @@
-= I18n.t 'project.show'
+%h2= I18n.t 'project.show'
+
+%p
+  %b= I18n.t 'project.title'
+  = project.title
+%p
+  %b= I18n.t 'project.status'
+  = project.status
+%p
+  %b= I18n.t 'project.target_language'
+  = project.target_language
+%p
+  %b= I18n.t 'project.customer'
+  = project.customer
+
+
+= link_to I18n.t('shared.edit'), edit_project_path(project)
+\|
+= link_to I18n.t('shared.back'), projects_path

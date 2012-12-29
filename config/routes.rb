@@ -1,5 +1,4 @@
 Contractor::Application.routes.draw do
-
   root                            :to => 'pages#home',      :via => :get
   match '/calendar',              :to => 'pages#calendar',  :via => :get
   match '/contact',               :to => 'pages#contact',   :via => :get
@@ -9,6 +8,8 @@ Contractor::Application.routes.draw do
   match '/translations',          :to => 'pages#offer',     :via => :get
   
   resources :projects,            :only => [:index, :show, :edit, :new]
+
+  resources :customers
 
 
   # The priority is based upon order of creation:

@@ -1,0 +1,19 @@
+= form_for project do |f|
+  - if project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(project.errors.count, "error")} prohibited this project from being saved:"
+      %ul
+        - project.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :status
+    = f.text_field :status
+  .field
+    = f.label :target_language
+    = f.text_field :target_language
+  .actions
+    = f.submit I18n.t('shared.save')

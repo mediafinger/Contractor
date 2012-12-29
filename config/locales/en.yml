@@ -12,3 +12,9 @@ en:
     edit: Projekt bearbeiten
     new:  Projekt anlegen
     show: Projekt-Details
+  shared:
+    back: zurück
+    edit: bearbeiten
+    save: speichern
+    show: anzeigen
+    index: Übersicht
