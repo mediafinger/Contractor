@@ -1,0 +1,23 @@
+!!! 5
+%html(lang="en")
+  %head
+    = render 'shared/metahead'
+
+  %body
+    = render 'shared/nav'
+    
+    .container
+
+      .row
+        .span12
+          - flash.each do |key, value|
+            = content_tag(:div, value, :class => "round flash #{key}")
+
+          %main
+            = yield
+
+    %foot
+      = render 'shared/footer' 
+
+/ JavaScript placed at the end of the document so the pages load faster
+= javascript_include_tag "application"

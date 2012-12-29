@@ -1,0 +1,21 @@
+postgresql: &postgresql
+  adapter: postgresql
+  database: contractor_<%= Rails.env %>
+#   username: andy
+#   password: ENV['CONTRACTOR_DB_PASSWORD_POSTGRES']
+#   min_messages: ERROR
+
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *<%= ENV['DB'] || "postgresql" %>   # whatever is in this line will be the DB
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

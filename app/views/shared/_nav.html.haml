@@ -1,0 +1,15 @@
+/ ### Begin of partial shared/_nav.html.haml ###
+
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => root_path}=I18n.t('pages.home')
+      .container.nav-collapse       
+        %ul.nav
+          %li.nav-head= link_to I18n.t('pages.offer'),   translations_path
+          %li.nav-head= link_to I18n.t('pages.prices'),  languages_and_prices_path
+          %li.nav-head= link_to I18n.t('pages.contact'), contact_path
