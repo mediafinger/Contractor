@@ -5,13 +5,17 @@ ruby '1.9.3'
 gem 'rake',                         '~> 10.0.0'
 gem 'rails',                        '3.2.9'
 gem 'pg',                           '~> 0.14'
-gem 'decent_exposure'
+gem 'decent_exposure',              '~> 2.0'
+gem 'draper',                       '~> 0.18'
+
+gem 'cancan',                       '~> 1.6'
+gem 'devise',                       '~> 2.0'
 
 gem 'haml-rails',                   '~> 0.3'
 gem 'jquery-rails',                 '~> 2.0'
 gem 'execjs',                       '~> 1.2'
 gem 'libv8',                        '~> 3.11.8'
-gem 'therubyracer',                 '~> 0.10'
+gem 'therubyracer',                 '~> 0.10'  
 
 group :assets do
   gem 'sass-rails',                 '~> 3.2'
@@ -28,12 +32,13 @@ group :development, :test do
   gem 'rspec-rails',                '~> 2.10'
   gem 'fabrication',                '~> 1.4'
   gem 'ffaker',                     '~> 1.15'
+  gem 'spring'
 end
 
 
   # gem 'thin',               '~> 1.3'
   # gem 'foreman',            '~> 0.50'
-  # gem 'devise',             '~> 2.0'
+
   # gem 'omniauth',           '~> 1.1'
   # gem 'omniauth-dropbox',   '~> 0.2'
   # gem 'omniauth-facebook',  '~> 1.4'
@@ -48,8 +53,6 @@ end
   # gem 'ffaker',             '~> 1.15'
   # gem 'less-rails'
   # gem 'twitter-bootstrap-rails',    '2.1.1'
-  #  gem 'cancan'
-  #  gem 'draper'
   #  gem 'rdiscount'
   #  gem 'carrierwave'
   #  gem 'active_admin'

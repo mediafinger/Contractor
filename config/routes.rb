@@ -1,4 +1,7 @@
 Contractor::Application.routes.draw do
+  resources :products
+
+
   root                            :to => 'pages#home',      :via => :get
   match '/calendar',              :to => 'pages#calendar',  :via => :get
   match '/contact',               :to => 'pages#contact',   :via => :get
