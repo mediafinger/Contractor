@@ -1,9 +1,9 @@
 # source 'https://rubygems.org'
 source 'http://bundler-api.herokuapp.com'
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.0'
-gem 'rails',                        '3.2.9'
+gem 'rails',                        '3.2.11'
 gem 'pg',                           '~> 0.14'
 gem 'decent_exposure',              '~> 2.0'
 gem 'draper',                       '~> 0.18'
