@@ -38,7 +38,6 @@ end
 
   # gem 'thin',               '~> 1.3'
   # gem 'foreman',            '~> 0.50'
-
   # gem 'omniauth',           '~> 1.1'
   # gem 'omniauth-dropbox',   '~> 0.2'
   # gem 'omniauth-facebook',  '~> 1.4'
@@ -49,12 +48,7 @@ end
   # gem 'dropbox-api',        '~> 0.3'
   # gem 'simple_form',        '~> 2.0'
   # gem 'httparty',           '~> 0.8'
-  # gem 'fabrication',        '~> 1.4'
-  # gem 'ffaker',             '~> 1.15'
-  # gem 'less-rails'
-  # gem 'twitter-bootstrap-rails',    '2.1.1'
   #  gem 'rdiscount'
   #  gem 'carrierwave'
   #  gem 'active_admin'
   #  gem 'kaminari'
-
