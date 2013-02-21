@@ -16,10 +16,11 @@
     = f.label :status, I18n.t('project.status')
     = f.text_field :status
   .field
-    = f.label :source_language, I18n.t('project.source_language')
-    = f.text_field :source_language
+    = f.label :units, I18n.t('project.units')
+    = f.text_field :units
   .field
-    = f.label :target_language, I18n.t('project.target_language')
-    = f.text_field :target_language
+    = f.label :products, I18n.t('project.products')
+    = f.select :products, options_from_collection_for_select(products, "id", "description", products.collect{ |p| p.id } ), :multiple => true
+
   .actions
     = f.submit I18n.t('shared.save')

@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   expose(:projects)
   expose(:project)
   expose(:customers)
+  expose(:products)
 
   def create
     if project.save

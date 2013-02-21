@@ -1,3 +1,3 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :unit
+  attr_accessible :description, :key, :price, :unit
 end
