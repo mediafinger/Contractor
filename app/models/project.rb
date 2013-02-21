@@ -1,12 +1,16 @@
 # encoding: UTF-8
 
 class Project < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
+
   belongs_to :customer
   has_and_belongs_to_many :products
-  attr_accessible :title, :status, :source_language, :target_language, :customer_id, :units, :products
   delegate :name,        :to => :customer, :prefix => true, :allow_nil => true
   #delegate :description, :to => :product,  :prefix => true, :allow_nil => true
 
+  # This can be removed as Mass-Assignement protection is done with strong-parameters
+  attr_accessible :title, :status, :source_language, :target_language, :customer_id, :units, :products
+  
   def total_price
     total_price = 0
     pros = products.order(:key)
@@ -27,7 +31,7 @@ class Project < ActiveRecord::Base
   def price(product)
     return (product.price / 100).round(2).to_s + " €"           if product.unit == "project"
     return (product.price * units / 100).round(2).to_s + " €"   if product.unit == "unit"
-    return (product.price * 100 - 100).round(2).to_s + " %"           if product.unit == "sum"
+    return (product.price * 100 - 100).round(2).to_s + " %"     if product.unit == "sum"
   end
 
 end

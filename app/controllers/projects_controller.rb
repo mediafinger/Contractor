@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
-  expose(:projects)
-  expose(:project)
-  expose(:customers)
-  expose(:products)
+  respond_to :html
+
+  expose!(:projects, attributes: :project_params)
+  expose!(:project, attributes: :project_params)
+  expose!(:customers)
+  expose!(:products)
 
   def create
     if project.save
@@ -20,4 +22,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+  private
+
+    def project_params
+      params.require(:project).permit(:title, :status, :source_language, :target_language, :customer_id, :units, :products)
+    end
 end

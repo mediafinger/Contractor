@@ -97,7 +97,7 @@ describe ProductsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Product.any_instance.stub(:save).and_return(false)
         post :create, {:product => { "description" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        response.should be_a_redirect
       end
     end
   end
@@ -141,7 +141,7 @@ describe ProductsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Product.any_instance.stub(:save).and_return(false)
         put :update, {:id => product.to_param, :product => { "description" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        response.should be_a_redirect
       end
     end
   end

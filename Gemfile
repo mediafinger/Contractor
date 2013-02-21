@@ -7,6 +7,7 @@ gem 'rails',                        '3.2.12'
 gem 'pg',                           '~> 0.14'
 gem 'decent_exposure',              '~> 2.0'
 gem 'draper',                       '~> 1.1'
+gem 'strong_parameters'
 
 gem 'cancan',                       '~> 1.6'
 gem 'devise',                       '~> 2.0'
