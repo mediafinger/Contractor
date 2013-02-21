@@ -1,10 +1,10 @@
 !!! 5
 %html(lang="en")
   %head
-    = render 'shared/metahead'
+    = render 'layouts/metahead'
 
   %body
-    = render 'shared/nav'
+    = render 'layouts/nav'
     
     .container
       .row
@@ -13,13 +13,13 @@
             = content_tag(:div, value, :class => "round flash #{key}")
 
           - if true  
-            = render 'shared/admin' 
+            = render 'layouts/admin' 
 
           %main
             = yield
 
     %foot
-      = render 'shared/footer' 
+      = render 'layouts/footer' 
 
 / JavaScript placed at the end of the document so the pages load faster
 = javascript_include_tag "application"
