@@ -18,11 +18,24 @@ end
 Customer.create(:name => '--')
 Customer.create(:name => 'Glossar Group', :email => "glossar@example.com")
 
-Product.create(:description => "Übersetzung deutsch - italienisch", :unit => "Wort", :price => "14.9")
-Product.create(:description => "Übersetzung englisch - italienisch", :unit => "Wort", :price => "13.9")
-Product.create(:description => "Korrekturlesen - italienisch", :unit => "Wort", :price => "3.7")
+Product.create(:description => "Grundpreis", :key => "base", :unit => :project, :price => "1490")
+Product.create(:description => "Übersetzung deutsch - italienisch", :key => "trans_de_it", :unit => :unit, :price => "14.9")
+Product.create(:description => "Übersetzung englisch - italienisch", :key => "trans_en_it", :unit => :unit, :price => "13.9")
+Product.create(:description => "Korrekturlesen - italienisch", :key => "proof_it", :unit => :unit, :price => "3.7")
+Product.create(:description => "Layout - Word", :key => "layout_word", :unit => :unit, :price => "2.5")
+Product.create(:description => "Rabatt - 10%", :key => "zz_minus_10", :unit => :sum, :price => "0.9")
+Product.create(:description => "Zuschlag - Zeit", :key => "zz_plus_25", :unit => :sum, :price => "1.25")
+Product.create(:description => "Zuschlag - Komplexität", :key => "zz_plus_15", :unit => :sum, :price => "1.15")
 
-Project.create(:customer_id => Customer.last.id, :title => "Primärprojekt", :units => 1000, :product_id => Product.first.id,
-                :status => "in Vorbereitung", :source_language => "deutsch", :target_language => "italienisch")
-Project.create(:customer_id => Customer.last.id, :title => "Sekundärprojekt", :units => 500, :product_id => (Product.first.id + 1),
-                :status => "läuft", :source_language => "englisch", :target_language => "italienisch")
+p = Project.new(:customer_id => Customer.last.id, :title => "Primärprojekt", :units => 1000, :status => "in Vorbereitung")
+p.products = [Product.find_by_key(:trans_de_it), Product.find_by_key(:base)]
+p.save
+p = Project.new(:customer_id => Customer.last.id, :title => "Sekundärprojekt", :units => 500, :status => "läuft")
+p.products = [Product.find_by_key(:trans_en_it), Product.find_by_key(:base)]
+p.save
+p = Project.new(:customer_id => Customer.last.id, :title => "Rabattprojekt", :units => 500, :status => "beendet")
+p.products = [Product.find_by_key(:proof_it), Product.find_by_key(:base), Product.find_by_key(:zz_minus_10)]
+p.save
+p = Project.new(:customer_id => Customer.last.id, :title => "Komplexprojekt", :units => 500, :status => "KVA")
+p.products = [Product.find_by_key(:proof_it), Product.find_by_key(:base), Product.find_by_key(:zz_plus_15)]
+p.save
