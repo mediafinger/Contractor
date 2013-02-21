@@ -1,6 +1,7 @@
 en:
   admin:
     customers: Alle Kunden
+    products: Alle Produkte
     projects: Alle Projekte
     project_new: Neues Projekt
   pages:
@@ -16,11 +17,14 @@ en:
     customer: Projekt-Kunde
     edit: Projekt bearbeiten
     new:  Projekt anlegen
+    price: Preis
+    products: Produkte
     show: Projekt-Details
     status: Projekt-Status
     source_language: Ausgangssprache
     target_language: Zielsprache
     title: Projekt-Titel
+    units: Wortanzahl
   shared:
     back: zurück
     edit: bearbeiten
