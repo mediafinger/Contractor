@@ -97,7 +97,7 @@ describe CustomersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Customer.any_instance.stub(:save).and_return(false)
         post :create, {:customer => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        response.should be_a_redirect
       end
     end
   end
@@ -141,7 +141,7 @@ describe CustomersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Customer.any_instance.stub(:save).and_return(false)
         put :update, {:id => customer.to_param, :customer => { "name" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        response.should be_a_redirect
       end
     end
   end
