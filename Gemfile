@@ -2,11 +2,11 @@
 source 'http://bundler-api.herokuapp.com'
 ruby '2.0.0'
 
-gem 'rake',                         '~> 10.0.0'
-gem 'rails',                        '3.2.11'
+gem 'rake',                         '~> 10.0.3'
+gem 'rails',                        '3.2.12'
 gem 'pg',                           '~> 0.14'
 gem 'decent_exposure',              '~> 2.0'
-gem 'draper',                       '~> 0.18'
+gem 'draper',                       '~> 1.1'
 
 gem 'cancan',                       '~> 1.6'
 gem 'devise',                       '~> 2.0'
@@ -19,7 +19,7 @@ gem 'therubyracer',                 '~> 0.10'
 
 group :assets do
   gem 'sass-rails',                 '~> 3.2'
-  gem 'bootstrap-sass',             '~> 2.2.2.0'
+  gem 'bootstrap-sass',             '~> 2.3'
   gem 'coffee-rails',               '~> 3.2'
   gem 'uglifier',                   '~> 1.2'
 end
@@ -30,7 +30,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails',                '~> 2.10'
-  gem 'fabrication',                '~> 1.4'
+  gem 'fabrication',                '~> 2.4'
   gem 'ffaker',                     '~> 1.15'
   gem 'spring'
 end
