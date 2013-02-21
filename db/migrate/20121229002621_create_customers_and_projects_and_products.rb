@@ -10,11 +10,8 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
 
     create_table :projects do |t|
       t.integer :customer_id
-      t.integer :product_id
       t.string :title
       t.string :status
-      t.string :target_language
-      t.string :source_language
       t.integer :units
 
       t.timestamps
@@ -22,10 +19,16 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
 
     create_table :products do |t|
       t.string :description
+      t.string :key
       t.string :unit
       t.float :price
 
       t.timestamps
+    end
+
+    create_table :products_projects do |t|
+      t.integer :product_id
+      t.integer :project_id
     end
   end
 end
