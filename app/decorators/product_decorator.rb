@@ -1,4 +1,4 @@
-class ProductDecorator < Draper::Base
+class ProductDecorator < Draper::Decorator
   decorates :product
 
   # Accessing Helpers
@@ -6,11 +6,7 @@ class ProductDecorator < Draper::Base
   #
   #   Normal Usage: helpers.number_to_currency(2)
   #   Abbreviated : h.number_to_currency(2)
-  #
-  #   Or, optionally enable "lazy helpers" by including this module:
-  #     include Draper::LazyHelpers
-  #   Then use the helpers with no proxy:
-  #     number_to_currency(2)
+
 
   # Defining an Interface
   #   Control access to the wrapped subject's methods using one of the following:
