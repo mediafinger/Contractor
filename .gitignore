@@ -10,7 +10,6 @@
 # Ignore vendor directory
 /vendor
 
-
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
