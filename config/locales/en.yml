@@ -14,6 +14,7 @@ en:
     prices: Sprachen und Preise
   project:
     all: Alle Projekte
+    add_product: Produkt hinzufügen
     customer: Projekt-Kunde
     edit: Projekt bearbeiten
     new:  Projekt anlegen
@@ -23,11 +24,12 @@ en:
     status: Projekt-Status
     source_language: Ausgangssprache
     target_language: Zielsprache
-    title: Projekt-Titel
-    units: Wortanzahl
+    name: Projekt-Titel
+    units: Anzahl
   shared:
     back: zurück
     edit: bearbeiten
+    delete: löschen
     save: speichern
     show: anzeigen
     index: Übersicht

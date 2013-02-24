@@ -16,30 +16,31 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   create_table "customers", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.boolean  "active"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "active",     :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.string  "product_id"
+    t.integer "project_id"
+    t.decimal "units",      :precision => 10, :scale => 3
   end
 
   create_table "products", :force => true do |t|
-    t.string   "description"
+    t.string   "name"
     t.string   "key"
     t.string   "unit"
-    t.float    "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "products_projects", :force => true do |t|
-    t.integer "product_id"
-    t.integer "project_id"
+    t.decimal  "price",      :precision => 9, :scale => 2
+    t.boolean  "active",                                   :default => true
+    t.datetime "created_at",                                                 :null => false
+    t.datetime "updated_at",                                                 :null => false
   end
 
   create_table "projects", :force => true do |t|
     t.integer  "customer_id"
-    t.string   "title"
+    t.string   "name"
     t.string   "status"
-    t.integer  "units"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

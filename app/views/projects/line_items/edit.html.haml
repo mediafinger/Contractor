@@ -1,0 +1,9 @@
+%h1 Editing line item
+
+= render 'form'
+
+= render 'project_items', :project => @project
+
+= link_to 'Show', @project
+\|
+= link_to 'Back', project_path(@project)

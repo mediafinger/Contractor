@@ -2,11 +2,9 @@
 
 %table
   %tr
-    %th= I18n.t('project.title')
+    %th= I18n.t('project.name')
     %th= I18n.t('project.customer')
     %th= I18n.t('project.status')
-    /%th= I18n.t('project.product_description')
-    %th= I18n.t('project.units')
     %th= I18n.t('project.price')
     %th
     %th
@@ -14,12 +12,10 @@
 
   - projects.each do |project|
     %tr
-      %td= project.title
+      %td= project.name
       %td= project.customer_name
       %td= project.status
-      / %td= project.product_description
-      %td= project.units
-      %td= project.total_price
+      %td.currency= number_to_currency(project.total_price, :precision => 2, :unit => "€", :format => "%n %u")
       %td= link_to 'Show', project
       %td= link_to 'Edit', edit_project_path(project)
       %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }

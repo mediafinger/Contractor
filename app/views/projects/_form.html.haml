@@ -8,19 +8,13 @@
 
   .field
     = f.label :customer_id, I18n.t('project.customer')
-    = f.select :customer_id, options_from_collection_for_select(customers, "id", "name") 
+    = f.select :customer_id, options_from_collection_for_select(customers, "id", "name", project.customer_id) 
   .field
-    = f.label :title, I18n.t('project.title')
-    = f.text_field :title
+    = f.label :name, I18n.t('project.name')
+    = f.text_field :name
   .field
     = f.label :status, I18n.t('project.status')
     = f.text_field :status
-  .field
-    = f.label :units, I18n.t('project.units')
-    = f.text_field :units
-  .field
-    = f.label :products, I18n.t('project.products')
-    = f.select :products, options_from_collection_for_select(products, "id", "description", products.collect{ |p| p.id } ), :multiple => true
 
   .actions
     = f.submit I18n.t('shared.save')

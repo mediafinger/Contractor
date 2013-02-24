@@ -1,0 +1,17 @@
+= form_for [@project, line_item] do |f|
+  - if line_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(line_item.errors.count, "error")} prohibited this line_item from being saved:"
+      %ul
+        - line_item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :product_id, I18n.t('project.add_product')
+    = f.select :product_id, options_from_collection_for_select(products, "id", "key", line_item.product_id) 
+  .field
+    = f.label :units, I18n.t('project.units')
+    = f.text_field :units
+  
+  .actions
+    = f.submit 'Save'

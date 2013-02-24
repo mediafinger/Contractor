@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
 
   has_many :projects
   validates :name, :presence => true
+  validates :email, :uniqueness => true  # { :scope => :team }
 
-  # This can be removed as Mass-Assignement protection is done with strong-parameters
   attr_accessible :active, :email, :name
 end

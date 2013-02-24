@@ -2,18 +2,22 @@
 
 %table
   %tr
-    %th Description
+    %th Key
+    %th Name
     %th Unit
     %th Price
+    %th Active
     %th
     %th
     %th
 
   - @products.each do |product|
     %tr
-      %td= product.description
+      %td= product.key
+      %td= product.name
       %td= product.unit
       %td= product.price
+      %td= product.active
       %td= link_to 'Show', product
       %td= link_to 'Edit', edit_product_path(product)
       %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }

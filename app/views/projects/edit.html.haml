@@ -2,6 +2,9 @@
 
 = render 'form'
 
+%p
+  %b= link_to I18n.t('project.add_product'), new_project_line_item_path(project)
+
 = link_to I18n.t('shared.show'), project
 \|
 = link_to I18n.t('shared.back'), projects_path
