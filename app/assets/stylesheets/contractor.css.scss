@@ -1,12 +1,3 @@
-$green:   #aaeecc;
-$orange:  #ffc40d;
-$red:     #ffaaaa;
-
-$admin_back:              #fffaea;
-$color_background_alert:  $red;
-$color_background_notice: $green;
-$color_navigation_link:   $orange;
-
 body { 
   padding-top: 60px;
 }
@@ -19,6 +10,9 @@ td, th {
   padding: 0 30px 3px 0;
 }
 
+a {
+  color: $link_color;
+}
 
 .admin-navi {
   background: $admin_back;

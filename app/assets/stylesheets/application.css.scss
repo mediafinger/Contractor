@@ -8,9 +8,10 @@
 
  // define varibales new BEFORE importing bootstrap 
  // $btnPrimaryBackground: #f00;
- 
- @import "contractor";
 
- @import "bootstrap";
- @import "bootstrap-responsive";
+@import "contractor_variables";
  
+@import "bootstrap";
+@import "bootstrap-responsive";
+ 
+@import "contractor";
