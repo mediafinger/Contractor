@@ -1,13 +1,13 @@
 %p
   %b Name:
-  = @customer.name
+  = customer.name
 %p
   %b Email:
-  = @customer.email
+  = customer.email
 %p
   %b Active:
-  = @customer.active
+  = customer.active
 
-= link_to 'Edit', edit_customer_path(@customer)
+= link_to 'Edit', edit_customer_path(customer)
 \|
 = link_to 'Back', customers_path

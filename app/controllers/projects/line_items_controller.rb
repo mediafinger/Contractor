@@ -5,33 +5,28 @@ class Projects::LineItemsController < ApplicationController
   expose!(:line_item, attributes: :line_item_params)
   expose!(:line_items, attributes: :line_item_params)
   expose!(:products)
-  expose!(:project)
-
-  def new
-    @line_item = LineItem.new
-    respond_with @line_item
-  end
-
-  def edit
-    @line_item = @project.line_items.find(params[:id])
-    respond_with @line_item
-  end
+  #expose!(:project)
 
   def create
-    @line_item = LineItem.new(line_item_params)
-    flash[:notice] = 'LineItem was successfully created.' if @line_item.save
+    line_item = LineItem.new(line_item_params)
+    flash[:notice] = 'LineItem was successfully created.' if line_item.save
     respond_with @project
   end
 
+  def edit
+    line_item = @project.line_items.find(params[:id])
+    respond_with line_item
+  end
+
   def update
-    @line_item = @project.line_items.find(params[:id])
-    flash[:notice] = 'LineItem was successfully updated.' if @line_item.update_attributes(line_item_params)
+    line_item = @project.line_items.find(params[:id])
+    flash[:notice] = 'LineItem was successfully updated.' if line_item.update_attributes(line_item_params)
     respond_with @project
   end
 
   def destroy
-    @line_item = @project.line_items.find(params[:id])
-    flash[:notice] = 'LineItem was successfully deleted.' if @line_item.destroy
+    line_item = @project.line_items.find(params[:id])
+    flash[:notice] = 'LineItem was successfully deleted.' if line_item.destroy
     respond_with @project
   end
 

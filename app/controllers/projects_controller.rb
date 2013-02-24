@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   expose!(:projects, attributes: :project_params)
   expose!(:project, attributes: :project_params)
   expose!(:customers)
-  expose!(:products)
+
 
   def create
     if project.save
@@ -26,6 +26,6 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:customer_id, :name, :status, :products)
+      params.require(:project).permit(:customer_id, :name, :status)
     end
 end
