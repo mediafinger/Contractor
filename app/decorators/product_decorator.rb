@@ -1,11 +1,15 @@
 class ProductDecorator < Draper::Decorator
-  decorates :product
 
-  # Accessing Helpers
-  #   You can access any helper via a proxy
-  #
-  #   Normal Usage: helpers.number_to_currency(2)
-  #   Abbreviated : h.number_to_currency(2)
+  delegate_all
+
+
+  def description
+    "#{key} - #{name} || #{price_as_currency} / #{unit.humanize}"
+  end
+
+  def price_as_currency
+    h.number_to_currency(price, :precision => 2, :unit => "€", :format => "%n %u")
+  end
 
 
   # Defining an Interface

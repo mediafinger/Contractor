@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   respond_to :html
 
-  expose!(:product, attributes: :product_params)
-  expose!(:products, attributes: :product_params)
+  expose! :product,  attributes: :product_params#,  strategy: DecoratorStrategy
+  expose! :products, attributes: :product_params
 
 
   def create
@@ -21,6 +21,6 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:name, :key, :price, :unit)
+      params.require(:product).permit(:active, :key, :name, :price, :unit)
     end
 end

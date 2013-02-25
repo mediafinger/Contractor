@@ -9,5 +9,5 @@ class Product < ActiveRecord::Base
   has_many :projects, :through => :line_items
 
   # This can be removed as Mass-Assignement protection is done with strong-parameters
-  attr_accessible :active, :name, :key, :price, :unit
+  attr_accessible :active, :key, :name, :price, :unit
 end
