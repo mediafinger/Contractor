@@ -1,16 +1,16 @@
 language: ruby
 rvm:
   - ruby-head
-  - ruby-1.9.3
+#  - ruby-1.9.3
 gemfile: Gemfile  
 bundler_args: "--without development production" 
 
 env: 
   - DB=postgresql
 
-matrix:
-  allow_failures:
-    - rvm: ruby-1.9.3
+# matrix:
+#   allow_failures:
+#     - rvm: ruby-1.9.3
 
 before_script:
   - psql -c 'create database contractor_test' -U postgres
