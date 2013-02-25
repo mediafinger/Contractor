@@ -27,9 +27,5 @@ describe CustomersController do
       put("/customers/1").should route_to("customers#update", :id => "1")
     end
 
-    it "routes to #destroy" do
-      delete("/customers/1").should route_to("customers#destroy", :id => "1")
-    end
-
   end
 end

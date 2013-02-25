@@ -1,5 +1,6 @@
 Fabricator(:product) do
-  description "MyString"
-  unit "MyString"
-  price 1
+  key "trans_en_it"
+  name "ProductName"
+  unit "word"
+  price 8.5
 end

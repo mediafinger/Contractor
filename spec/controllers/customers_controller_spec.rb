@@ -38,7 +38,7 @@ describe CustomersController do
     it "assigns all customers as @customers" do
       customer = Customer.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:customers).should eq([customer])
+      controller.customers.should eq([customer])
     end
   end
 
@@ -46,14 +46,14 @@ describe CustomersController do
     it "assigns the requested customer as @customer" do
       customer = Customer.create! valid_attributes
       get :show, {:id => customer.to_param}, valid_session
-      assigns(:customer).should eq(customer)
+      controller.customers.should eq([customer])
     end
   end
 
   describe "GET new" do
     it "assigns a new customer as @customer" do
       get :new, {}, valid_session
-      assigns(:customer).should be_a_new(Customer)
+      controller.customer.should be_a_new(Customer)
     end
   end
 
@@ -61,7 +61,7 @@ describe CustomersController do
     it "assigns the requested customer as @customer" do
       customer = Customer.create! valid_attributes
       get :edit, {:id => customer.to_param}, valid_session
-      assigns(:customer).should eq(customer)
+      controller.customer.should eq(customer)
     end
   end
 
@@ -75,8 +75,7 @@ describe CustomersController do
 
       it "assigns a newly created customer as @customer" do
         post :create, {:customer => valid_attributes}, valid_session
-        assigns(:customer).should be_a(Customer)
-        assigns(:customer).should be_persisted
+        controller.customer.should be_a(Customer)
       end
 
       it "redirects to the created customer" do
@@ -90,7 +89,7 @@ describe CustomersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Customer.any_instance.stub(:save).and_return(false)
         post :create, {:customer => { "name" => "invalid value" }}, valid_session
-        assigns(:customer).should be_a_new(Customer)
+        controller.customer.should be_a_new(Customer)
       end
 
       it "re-renders the 'new' template" do
@@ -117,7 +116,7 @@ describe CustomersController do
       it "assigns the requested customer as @customer" do
         customer = Customer.create! valid_attributes
         put :update, {:id => customer.to_param, :customer => valid_attributes}, valid_session
-        assigns(:customer).should eq(customer)
+        controller.customers.should eq([customer])
       end
 
       it "redirects to the customer" do
@@ -133,7 +132,7 @@ describe CustomersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Customer.any_instance.stub(:save).and_return(false)
         put :update, {:id => customer.to_param, :customer => { "name" => "invalid value" }}, valid_session
-        assigns(:customer).should eq(customer)
+        controller.customers.should eq([customer])
       end
 
       it "re-renders the 'edit' template" do
@@ -143,21 +142,6 @@ describe CustomersController do
         put :update, {:id => customer.to_param, :customer => { "name" => "invalid value" }}, valid_session
         response.should be_a_redirect
       end
-    end
-  end
-
-  describe "DELETE destroy" do
-    it "destroys the requested customer" do
-      customer = Customer.create! valid_attributes
-      expect {
-        delete :destroy, {:id => customer.to_param}, valid_session
-      }.to change(Customer, :count).by(-1)
-    end
-
-    it "redirects to the customers list" do
-      customer = Customer.create! valid_attributes
-      delete :destroy, {:id => customer.to_param}, valid_session
-      response.should redirect_to(customers_url)
     end
   end
 

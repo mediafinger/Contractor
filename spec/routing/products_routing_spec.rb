@@ -26,10 +26,5 @@ describe ProductsController do
     it "routes to #update" do
       put("/products/1").should route_to("products#update", :id => "1")
     end
-
-    it "routes to #destroy" do
-      delete("/products/1").should route_to("products#destroy", :id => "1")
-    end
-
   end
 end
