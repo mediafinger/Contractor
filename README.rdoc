@@ -1,1 +1,2 @@
 {<img src="https://travis-ci.org/mediafinger/Contractor.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mediafinger/Contractor]
+{<img src="https://codeclimate.com/github/mediafinger/Contractor.png" />}[https://codeclimate.com/github/mediafinger/Contractor]
