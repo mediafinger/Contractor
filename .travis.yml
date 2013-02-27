@@ -17,8 +17,7 @@ before_script:
   - "bundle exec rake db:migrate"
   - "bundle exec rake db:test:prepare"
 
-script: "bundle exec rspec spec"
-script: "bundle exec rake test"
+script: "bundle exec rake"
 
 branches:
   only:

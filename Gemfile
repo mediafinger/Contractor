@@ -4,6 +4,7 @@ ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
 gem 'rails',                        '3.2.12'
+# gem 'rails',  :git => "git://github.com/rails/rails.git", :branch => "3-2-stable"
 gem 'pg',                           '~> 0.14'
 gem 'decent_exposure',              '~> 2.0'
 gem 'draper',                       '~> 1.1'
