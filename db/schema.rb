@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   create_table "line_items", :force => true do |t|
     t.string  "product_id"
     t.integer "project_id"
+    t.integer "modifier",                                  :default => 0
     t.decimal "units",      :precision => 10, :scale => 3
   end
 

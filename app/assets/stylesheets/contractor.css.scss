@@ -29,7 +29,7 @@ a {
   padding-right: 3em;
 }
 
-.alert {
+.error {
   background-color: $color_background_alert;
 }
 
@@ -91,6 +91,38 @@ a {
   border-radius:          1em;
 }
 
-.currency {
+.phat {
+  font-weight: bold;
+}
+
+.number {
+  display:    inline-block;
+  min-width:  60px;
   text-align: right;
 }
+
+.text {
+  display:    inline-block;
+  min-width:  20px;
+  text-align: center;
+}
+
+.desc {
+  font-style:   italic;
+  min-width:    80px;
+  padding-left: 10px;
+  text-align:   left;
+}
+
+.long {
+  min-width:    250px;
+  padding-left: 10px;
+  text-align:   left;
+}
+
+.edit-links {
+  display:    inline-block;
+  padding-left: 40px;
+  text-align:   right;
+}
+

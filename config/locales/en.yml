@@ -25,7 +25,9 @@ en:
     source_language: Ausgangssprache
     target_language: Zielsprache
     name: Projekt-Titel
-    units: Anzahl
+    line_item:
+        modifier: Rabatt / Zuschlag
+        units: Anzahl
   shared:
     back: zurück
     edit: bearbeiten

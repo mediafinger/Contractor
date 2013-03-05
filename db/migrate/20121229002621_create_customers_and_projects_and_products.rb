@@ -26,6 +26,7 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
     create_table :line_items do |t|
       t.string  :product_id
       t.integer :project_id
+      t.integer :modifier,    :default => 0
       t.decimal :units,       :precision => 10, :scale => 3
     end
   end

@@ -9,14 +9,24 @@ class Projects::LineItemsController < ApplicationController
 
   def create
     line_item = LineItem.new(line_item_params)
-    flash[:notice] = 'LineItem was successfully created.' if line_item.save
-    respond_with project
+    if line_item.save
+      flash[:notice] = 'LineItem was successfully created.'
+      respond_with project
+    else
+      flash[:error] = 'LineItem could not be saved.'
+      render action: :new
+    end
   end
 
   def update
     line_item = project.line_items.find(params[:id])
-    flash[:notice] = 'LineItem was successfully updated.' if line_item.update_attributes(line_item_params)
-    respond_with project
+    if line_item.update_attributes(line_item_params)
+      flash[:notice] = 'LineItem was successfully updated.'
+      respond_with project
+    else
+      flash[:error] = 'LineItem could not be saved.'
+      render action: :edit
+    end
   end
 
   def destroy
@@ -30,7 +40,7 @@ class Projects::LineItemsController < ApplicationController
 
     def line_item_params
       params[:line_item].merge!(:project_id => params[:project_id])
-      params.require(:line_item).permit(:product_id, :project_id, :units)
+      params.require(:line_item).permit(:product_id, :project_id, :modifier, :units)
     end
 
 end

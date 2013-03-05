@@ -1,13 +1,12 @@
 class Product < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
-  
-  validates :key, :price, :unit, :presence => true
-  validates :key,   :uniqueness => true  # { :scope => :team }
-  validates :price, :numericality => true
 
   has_many :line_items
   has_many :projects, :through => :line_items
 
-  # This can be removed as Mass-Assignement protection is done with strong-parameters
+  validates :key,   :presence => true, :uniqueness => true  # { :scope => :team }
+  validates :price, :presence => true, :numericality => true
+  validates :unit,  :presence => true 
+
   attr_accessible :active, :key, :name, :price, :unit
 end

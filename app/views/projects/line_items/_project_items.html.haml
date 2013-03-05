@@ -1,14 +1,22 @@
 %p
   %b= I18n.t 'project.products'
   %ul
-    - project.line_items.each do |item|
+    - project.line_items_sorted_by_product_unit.each do |item|
       %li
-        %span.currency= number_to_currency(item.price, :precision => 2, :unit => "€", :format => "%n %u")
-        %span -- 
-        %span= item.units 
-        %span x  
-        %span= item.product.name
-        %span --
-        %span= link_to I18n.t('shared.edit'), edit_project_line_item_path(project, item)
-        %span \|
-        %span= link_to I18n.t('shared.delete'), [project, item], method: :delete, data: { confirm: 'Are you sure?' }
+        .text.long.phat= item.product_name
+        .number= item.units
+        .text x  
+        .number= number_to_currency(item.product_price / 100, :precision => 2, :unit => "€", :format => "%n %u")
+        .text.desc= "/ #{item.product_unit}"
+        .number
+          - if item.surcharged?
+            +
+          - unless item.normal_priced?
+            = number_to_percentage(item.modifier, :precision => 0) 
+        .text= "="
+        .number.phat= number_to_currency(item.price, :precision => 2, :unit => "€", :format => "%n %u")
+        .edit-links
+          .text= link_to I18n.t('shared.edit'), edit_project_line_item_path(project, item)
+          .text= "|"
+          .text= link_to I18n.t('shared.delete'), [project, item], method: :delete, data: { confirm: 'Are you sure?' }
+  .clearer
