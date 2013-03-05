@@ -12,6 +12,17 @@ en:
     legal: Impressum
     offer: Übersetzungen
     prices: Sprachen und Preise
+  product:
+    unit:
+      euro: Euro
+      hour: Stunde
+      project: Projekt
+      unit: Wort
+      plural:
+        euro: Euro
+        hour: Stunden
+        project: Projekte
+        unit: Wörter
   project:
     all: Alle Projekte
     add_product: Produkt hinzufügen
@@ -26,8 +37,8 @@ en:
     target_language: Zielsprache
     name: Projekt-Titel
     line_item:
-        modifier: Rabatt / Zuschlag
-        units: Anzahl
+      modifier: Rabatt / Zuschlag
+      units: Anzahl
   shared:
     back: zurück
     edit: bearbeiten

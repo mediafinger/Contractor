@@ -14,9 +14,9 @@
   - products.each do |product|
     %tr
       %td= product.key
-      %td= product.name
-      %td= product.unit
-      %td= product.price
+      %td.phat= product.name
+      %td= I18n.t("product.unit.#{product.unit}")
+      %td.number.phat= number_to_currency(product.price / 100, :precision => 3, :unit => "€", :format => "%n %u")
       %td= product.active
       %td= link_to 'Show', product
       %td= link_to 'Edit', edit_product_path(product)

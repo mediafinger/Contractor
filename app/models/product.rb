@@ -10,3 +10,11 @@ class Product < ActiveRecord::Base
 
   attr_accessible :active, :key, :name, :price, :unit
 end
+
+# Create a Unit model with the attributes:
+# string: key
+# string: name
+# string: plural
+# boolean: float
+# Name and Plural will be entered by the user and used to display the Unit in the App and on Invoices
+# Float will be used to format the display and to set the :step for the number_field

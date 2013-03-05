@@ -6,8 +6,8 @@
         .text.long.phat= item.product_name
         .number= item.units
         .text x  
-        .number= number_to_currency(item.product_price / 100, :precision => 2, :unit => "€", :format => "%n %u")
-        .text.desc= "/ #{item.product_unit}"
+        .number= number_to_currency(item.product_price / 100, :precision => 3, :unit => "€", :format => "%n %u")
+        .text.desc= "/ #{I18n.t("product.unit.#{item.product_unit}")}"
         .number
           - if item.surcharged?
             +
@@ -19,4 +19,17 @@
           .text= link_to I18n.t('shared.edit'), edit_project_line_item_path(project, item)
           .text= "|"
           .text= link_to I18n.t('shared.delete'), [project, item], method: :delete, data: { confirm: 'Are you sure?' }
+  .clearer
+
+  %i Rechnungsansicht:
+  %ul
+    - project.line_items_sorted_by_product_unit.each do |item|
+      %li
+        .text.long.phat= item.product_name
+        .number= item.units
+        .text.desc= "#{I18n.t("product.unit.plural.#{item.product_unit}")}"
+        .text x
+        .number= number_to_currency(item.product_price * item.modification / 100, :precision => 3, :unit => "€", :format => "%n %u")
+        .text= "="
+        .number.phat= number_to_currency(item.price, :precision => 2, :unit => "€", :format => "%n %u")
   .clearer

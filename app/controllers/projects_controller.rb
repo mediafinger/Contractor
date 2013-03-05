@@ -7,19 +7,15 @@ class ProjectsController < ApplicationController
 
 
   def create
-    if project.save
-      redirect_to(project)
-    else
-      render :new
-    end
+    project = Project.new(project_params)
+    flash[:notice] = 'Project was successfully created.' if project.save
+    respond_with project
   end
 
   def update
-    if project.save
-      redirect_to(project)
-    else
-      render :edit
-    end
+    project = Project.find(params[:id])
+    flash[:notice] = 'Project was successfully updated.' if project.update_attributes(project_params)
+    respond_with project
   end
 
 
