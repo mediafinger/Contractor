@@ -8,7 +8,7 @@
 
   .field
     = f.label :product_id, I18n.t('project.add_product')
-    = f.select :product_id, options_from_collection_for_select(products, "id", "key", line_item.product_id) 
+    = f.select :product_id, options_from_collection_for_select(products, "id", "key_name", line_item.product_id) 
   .field
     = f.label :units, I18n.t('project.line_item.units')
     = f.number_field :units, :step => 0.001

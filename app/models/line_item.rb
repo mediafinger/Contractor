@@ -17,6 +17,9 @@ class LineItem < ActiveRecord::Base
   delegate :price,          :to => :product,  :prefix => true,  :allow_nil => false
   delegate :unit,           :to => :product,  :prefix => true,  :allow_nil => false
 
+  scope :by_unit, order('unit ASC')
+  
+
   def price
     (units * product.price * modification) / 100
   end

@@ -11,7 +11,7 @@
   = @project.status
 %p
   %b= I18n.t 'project.price'
-  = number_to_currency(@project.total_price, :precision => 2, :unit => "€", :format => "%n %u")
+  = @project.total_price_as_currency
 
 = render 'projects/line_items/project_items', :project => @project
 

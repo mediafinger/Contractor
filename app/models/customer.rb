@@ -7,4 +7,6 @@ class Customer < ActiveRecord::Base
   validates :email, :uniqueness => true  # { :scope => :team }
 
   attr_accessible :active, :email, :name
+
+  scope :by_name, order('name ASC')
 end

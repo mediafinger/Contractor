@@ -12,8 +12,14 @@ class Project < ActiveRecord::Base
 
   delegate  :name, :to => :customer, :prefix => true, :allow_nil => false
 
+  scope :by_name,   order("name ASC")
+  scope :in_status, proc { |status| where(:status => status) }
+
+
   def line_items_sorted_by_product_unit
-    line_items.sort_by { |item| item.product_unit }
+    LineItemDecorator.decorate_collection(
+      line_items.sort_by { |item| item.product_unit }
+    )
   end
 
   def total_price

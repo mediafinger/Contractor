@@ -15,7 +15,7 @@
       %td= project.name
       %td= project.customer_name
       %td= project.status
-      %td.currency= number_to_currency(project.total_price, :precision => 2, :unit => "€", :format => "%n %u")
+      %td.number= project.total_price_as_currency
       %td= link_to 'Show', project
       %td= link_to 'Edit', edit_project_path(project)
       %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }

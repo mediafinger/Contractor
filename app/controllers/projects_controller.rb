@@ -4,12 +4,12 @@ class ProjectsController < ApplicationController
   before_filter :get_customers, :only => [:new, :create, :edit, :update]
 
   def index
-    @projects = Project.all
+    @projects = ProjectDecorator.decorate_collection(Project.by_name)
     respond_with @projects
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:id]).decorate
   end
 
   def new

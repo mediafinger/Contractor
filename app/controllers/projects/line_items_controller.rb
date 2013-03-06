@@ -23,6 +23,10 @@ class Projects::LineItemsController < ApplicationController
     end
   end
 
+  def edit
+    @line_item = LineItem.find(params[:id])
+  end
+
   def update
     @line_item = @project.line_items.find(params[:id])
     if @line_item.update_attributes(line_item_params)
@@ -44,11 +48,11 @@ class Projects::LineItemsController < ApplicationController
   private
 
     def get_products
-      @products ||= Product.all
+      @products ||= ProductDecorator.decorate_collection(Product.all)
     end
 
     def get_project
-      @project = Project.find(params[:project_id])
+      @project = Project.find(params[:project_id]).decorate
     end
 
     def line_item_params

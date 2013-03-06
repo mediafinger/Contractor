@@ -9,6 +9,8 @@ class Product < ActiveRecord::Base
   validates :unit,  :presence => true 
 
   attr_accessible :active, :key, :name, :price, :unit
+
+  scope :by_name, order('key ASC')
 end
 
 # Create a Unit model with the attributes:
