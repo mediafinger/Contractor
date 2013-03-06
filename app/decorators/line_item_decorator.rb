@@ -27,4 +27,10 @@ class LineItemDecorator < Draper::Decorator
     h.number_to_currency(number, :precision => digits, :unit => "€", :format => "%n %u")
   end
 
+  def format_as_number(number)
+    precision = model.needs_digits? ? 3 : 0
+    
+    h.number_with_precision(number.to_f, :precision => precision, :delimiter => "")
+  end
+
 end

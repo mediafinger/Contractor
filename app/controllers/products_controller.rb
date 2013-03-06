@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   respond_to :html
 
+  before_filter :get_units, :only => [:new, :create, :edit, :update]
+
+
   def index
     @products = Product.all
     respond_with @products
@@ -33,7 +36,11 @@ class ProductsController < ApplicationController
 
   private
 
+    def get_units
+      @units = Unit.by_name
+    end
+
     def product_params
-      params.require(:product).permit(:active, :key, :name, :price, :unit)
+      params.require(:product).permit(:active, :key, :name, :price, :unit_id)
     end
 end

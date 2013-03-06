@@ -57,7 +57,7 @@ class Projects::LineItemsController < ApplicationController
 
     def line_item_params
       params[:line_item].merge!(:project_id => params[:project_id])
-      params.require(:line_item).permit(:product_id, :project_id, :modifier, :units)
+      params.require(:line_item).permit(:product_id, :project_id, :modifier, :quantity)
     end
 
 end

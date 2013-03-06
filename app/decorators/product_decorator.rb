@@ -5,7 +5,7 @@ class ProductDecorator < Draper::Decorator
     "#{model.key} - #{model.name} || #{price_as_currency} / #{model.unit.humanize}"
   end
 
-  def key_name
+  def product_desc
     "#{model.name} | #{model.key}"
   end
 

@@ -13,16 +13,7 @@ en:
     offer: Übersetzungen
     prices: Sprachen und Preise
   product:
-    unit:
-      euro: Euro
-      hour: Stunde
-      project: Projekt
-      unit: Wort
-      plural:
-        euro: Euro
-        hour: Stunden
-        project: Projekte
-        unit: Wörter
+    unit: Einheit
   project:
     all: Alle Projekte
     add_product: Produkt hinzufügen
@@ -38,7 +29,7 @@ en:
     name: Projekt-Titel
     line_item:
       modifier: Rabatt / Zuschlag
-      units: Anzahl
+      quantity: Anzahl
   shared:
     back: zurück
     edit: bearbeiten

@@ -13,8 +13,8 @@
     = f.label :key
     = f.text_field :key
   .field
-    = f.label :unit
-    = f.text_field :unit
+    = f.label :unit_id
+    = f.select :unit_id, options_from_collection_for_select(units, "id", "unit_desc", product.unit_id) 
   .field
     = f.label :price
     = f.text_field :price

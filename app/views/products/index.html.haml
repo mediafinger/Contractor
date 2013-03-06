@@ -4,9 +4,9 @@
   %tr
     %th Key
     %th Name
-    %th Unit
-    %th Price
-    %th Active
+    %th Einheit
+    %th Preis
+    %th Aktiv
     %th
     %th
     %th
@@ -15,7 +15,7 @@
     %tr
       %td= product.key
       %td.phat= product.name
-      %td= I18n.t("product.unit.#{product.unit}")
+      %td= product.unit.name
       %td.number.phat= number_to_currency(product.price / 100, :precision => 3, :unit => "€", :format => "%n %u")
       %td= product.active
       %td= link_to 'Show', product

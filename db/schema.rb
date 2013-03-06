@@ -14,26 +14,26 @@
 ActiveRecord::Schema.define(:version => 20121229002621) do
 
   create_table "customers", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
     t.boolean  "active",     :default => true
+    t.string   "email"
+    t.string   "name"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
   end
 
   create_table "line_items", :force => true do |t|
-    t.string  "product_id"
-    t.integer "project_id"
     t.integer "modifier",                                  :default => 0
-    t.decimal "units",      :precision => 10, :scale => 3
+    t.integer "project_id"
+    t.string  "product_id"
+    t.decimal "quantity",   :precision => 10, :scale => 3
   end
 
   create_table "products", :force => true do |t|
-    t.string   "name"
-    t.string   "key"
-    t.string   "unit"
-    t.decimal  "price",      :precision => 9, :scale => 2
     t.boolean  "active",                                   :default => true
+    t.string   "key"
+    t.string   "name"
+    t.decimal  "price",      :precision => 9, :scale => 2
+    t.string   "unit_id"
     t.datetime "created_at",                                                 :null => false
     t.datetime "updated_at",                                                 :null => false
   end
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "units", :force => true do |t|
+    t.boolean "active", :default => true
+    t.boolean "float",  :default => true
+    t.string  "key"
+    t.string  "name"
+    t.string  "plural"
   end
 
 end

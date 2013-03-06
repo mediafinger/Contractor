@@ -8,10 +8,17 @@
 
   .field
     = f.label :product_id, I18n.t('project.add_product')
-    = f.select :product_id, options_from_collection_for_select(products, "id", "key_name", line_item.product_id) 
+    = f.select :product_id, options_from_collection_for_select(products, "id", "product_desc", line_item.product_id) 
   .field
-    = f.label :units, I18n.t('project.line_item.units')
-    = f.number_field :units, :step => 0.001
+    = f.label :quantity, I18n.t('project.line_item.quantity')
+    = f.number_field :quantity, :step => 0.001
+
+    / ToDo: add some Ajax that watches onChange of the product_selection, to reload the quantity field accordingly
+    / - if line_item.needs_digits?
+    /   = f.number_field :quantity, :step => 0.001
+    / -else
+    /   = f.number_field :quantity, :step => 1, :value => line_item.quantity.to_i
+
   .field
     = f.label :modifier, I18n.t('project.line_item.modifier')
     = f.number_field :modifier, :in => -100..100

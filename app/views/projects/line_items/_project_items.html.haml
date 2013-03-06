@@ -4,8 +4,9 @@
     - project.line_items_sorted_by_product_unit.each do |item|
       %li
         .text.long.phat= item.product_name
-        .number= item.units
-        .text.desc= "#{I18n.t("product.unit.plural.#{item.product_unit}")}"
+        .number= item.format_as_number(item.quantity)
+        / ToDo worship Demeter!
+        .text.desc= item.product.unit.plural
         .text x
         .number{item.modification_tooltip}= item.modified_price_as_currency(3)
         .text= "="
