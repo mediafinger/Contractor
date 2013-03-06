@@ -7,22 +7,22 @@ gem 'rails',                        '3.2.12'
 # gem 'rails',  :git => "git://github.com/rails/rails.git", :branch => "3-2-stable"
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
-gem 'strong_parameters'
+gem 'strong_parameters',            '~> 0.2'
 
-gem 'cancan',                       '~> 1.6'
-gem 'devise',                       '~> 2.0'
+# gem 'cancan',                       '~> 1.6'
+# gem 'devise',                       '~> 2.2'
 
-gem 'haml-rails',                   '~> 0.3'
-gem 'jquery-rails',                 '~> 2.0'
-gem 'execjs',                       '~> 1.2'
+gem 'haml-rails',                   '~> 0.4'
+gem 'jquery-rails',                 '~> 2.2'
+gem 'execjs',                       '~> 1.4'
 gem 'libv8',                        '~> 3.11.8'
-gem 'therubyracer',                 '~> 0.10'  
+gem 'therubyracer',                 '~> 0.11'  
 
 group :assets do
   gem 'sass-rails',                 '~> 3.2'
   gem 'bootstrap-sass',             '~> 2.3'
   gem 'coffee-rails',               '~> 3.2'
-  gem 'uglifier',                   '~> 1.2'
+  gem 'uglifier',                   '~> 1.3'
 end
 
 group :development do
@@ -30,10 +30,10 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails',                '~> 2.10'
-  gem 'fabrication',                '~> 2.4'
+  gem 'rspec-rails',                '~> 2.13'
+  gem 'fabrication',                '~> 2.6'
   gem 'ffaker',                     '~> 1.15'
-  gem 'spring'
+  # gem 'spring',                     '~> 0.0.7'
 end
 
 
