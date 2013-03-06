@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   validates :customer_id, :presence => true
   validates :name,        :presence => true
   
-  attr_accessible :name, :status, :customer_id
+  attr_accessible :name, :status, :customer, :customer_id
 
   delegate  :name, :to => :customer, :prefix => true, :allow_nil => false
 

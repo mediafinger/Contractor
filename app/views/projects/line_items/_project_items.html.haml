@@ -29,7 +29,7 @@
         .number= item.units
         .text.desc= "#{I18n.t("product.unit.plural.#{item.product_unit}")}"
         .text x
-        .number= number_to_currency(item.product_price * item.modification / 100, :precision => 3, :unit => "€", :format => "%n %u")
+        .number{title: "#{item.modifier}"}= number_to_currency(item.product_price * item.modification / 100, :precision => 3, :unit => "€", :format => "%n %u")
         .text= "="
         .number.phat= number_to_currency(item.price, :precision => 2, :unit => "€", :format => "%n %u")
   .clearer
