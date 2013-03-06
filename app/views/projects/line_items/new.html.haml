@@ -1,7 +1,7 @@
 %h1 New line item
 
-= render 'form'
+= render 'form', :line_item => @line_item, :project => @project, :products => @products
 
-= render 'project_items', :project => project
+= render 'project_items', :project => @project
 
-= link_to 'Back', project_path(project)
+= link_to 'Back', project_path(@project)

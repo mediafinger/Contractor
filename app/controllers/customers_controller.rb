@@ -1,9 +1,18 @@
 class CustomersController < ApplicationController
   respond_to :html
 
-  expose!(:customer, attributes: :customer_params)
-  expose!(:customers, attributes: :customer_params)
+  def index
+    @customers = Customer.all
+    respond_with @customers
+  end
 
+  def show
+    @customer = Customer.find(params[:id])
+  end
+
+  def new
+    @customer = Customer.new
+  end
 
   def create
     customer = Customer.new(customer_params)
@@ -11,10 +20,14 @@ class CustomersController < ApplicationController
     respond_with customer
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
   def update
-    customer = Customer.find(params[:id])
-    flash[:notice] = 'Customer was successfully updated.' if customer.update_attributes(customer_params)
-    respond_with customer
+    @customer = Customer.find(params[:id])
+    flash[:notice] = 'Customer was successfully updated.' if @customer.update_attributes(customer_params)
+    respond_with @customer
   end
 
 

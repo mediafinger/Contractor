@@ -2,20 +2,20 @@
 
 %p
   %b Key:
-  = product.key
+  = @product.key
 %p
   %b Name:
-  = product.name
+  = @product.name
 %p
   %b Unit:
-  = product.unit
+  = @product.unit
 %p
   %b Price:
-  = product.price
+  = @product.price
 %p
   %b Active:
-  = product.active
+  = @product.active
 
-= link_to 'Edit', edit_product_path(product)
+= link_to 'Edit', edit_product_path(@product)
 \|
 = link_to 'Back', products_path

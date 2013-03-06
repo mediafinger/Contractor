@@ -2,22 +2,22 @@
 
 %p
   %b= I18n.t 'project.name'
-  = project.name
+  = @project.name
 %p
   %b= I18n.t 'project.customer'
-  = project.customer_name
+  = @project.customer_name
 %p
   %b= I18n.t 'project.status'
-  = project.status
+  = @project.status
 %p
   %b= I18n.t 'project.price'
-  = number_to_currency(project.total_price, :precision => 2, :unit => "€", :format => "%n %u")
+  = number_to_currency(@project.total_price, :precision => 2, :unit => "€", :format => "%n %u")
 
-= render 'projects/line_items/project_items', :project => project
+= render 'projects/line_items/project_items', :project => @project
 
 %p
-  %b= link_to I18n.t('project.add_product'), new_project_line_item_path(project)
+  %b= link_to I18n.t('project.add_product'), new_project_line_item_path(@project)
 
-= link_to I18n.t('shared.edit'), edit_project_path(project)
+= link_to I18n.t('shared.edit'), edit_project_path(@project)
 \|
 = link_to I18n.t('shared.back'), projects_path

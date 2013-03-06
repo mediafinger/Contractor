@@ -1,7 +1,7 @@
 %h1 Editing customer
 
-= render 'form'
+= render 'form', :customer => @customer
 
-= link_to 'Show', customer
+= link_to 'Show', @customer
 \|
 = link_to 'Back', customers_path
