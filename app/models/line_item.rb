@@ -1,14 +1,10 @@
 class LineItem < ActiveRecord::Base
-  include ActiveModel::ForbiddenAttributesProtection
-
   belongs_to :product
   belongs_to :project
 
   validates :modifier,   :numericality => { :only_integer => true, :greater_than_or_equal_to => -100, :less_than_or_equal_to => 100 }
   validates :project_id, :product_id, :quantity, :presence => true
   validates :quantity,  :numericality => true
-
-  attr_accessible :product_id, :project_id, :modifier, :quantity
 
   delegate :customer_name,  :to => :project,  :prefix => false, :allow_nil => true
   delegate :key,            :to => :product,  :prefix => true,  :allow_nil => false
