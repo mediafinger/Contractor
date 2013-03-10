@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   has_many    :products,  :through => :line_items
 
   validates :customer_id, :presence => true
+  validate  :customer_exists
   validates :name,        :presence => true
   validates :status_id,   :presence => true
 
@@ -26,5 +27,14 @@ class Project < ActiveRecord::Base
 
   def total_price
     line_items.inject(0) { |sum, item| sum + item.price }
+  end
+
+  def customer_exists
+    begin
+      Customer.find(self.customer_id)
+    rescue ActiveRecord::RecordNotFound
+      errors.add(:customer_id, "entry with customer_id #{self.customer_id} could not be found")
+      false
+    end
   end
 end

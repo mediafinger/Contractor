@@ -14,7 +14,7 @@
     = f.text_field :name
   .field
     = f.label :status_id, I18n.t('project.status')
-    = f.select :customer_id, options_from_collection_for_select(statuses, "id", "status_desc", project.status_id) 
+    = f.select :status_id, options_from_collection_for_select(statuses, "id", "status_desc", project.status_id) 
 
   .actions
     = f.submit I18n.t('shared.save')
