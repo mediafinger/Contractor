@@ -1,5 +1,5 @@
 %h2= I18n.t 'project.new'
 
-= render 'form', :project => @project, :customers => @customers
+= render 'form', :project => @project, :customers => @customers, :statuses => @statuses
 
 = link_to I18n.t('shared.back'), projects_path

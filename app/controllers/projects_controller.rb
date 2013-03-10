@@ -2,9 +2,10 @@ class ProjectsController < ApplicationController
   respond_to :html
 
   before_filter :get_customers, :only => [:new, :create, :edit, :update]
+  before_filter :get_statuses,  :only => [:new, :create, :edit, :update]
 
   def index
-    @projects = ProjectDecorator.decorate_collection(Project.by_name)
+    @projects = ProjectDecorator.decorate_collection(Project.by_status.by_name)
     respond_with @projects
   end
 
@@ -45,7 +46,11 @@ class ProjectsController < ApplicationController
       @customers ||= Customer.all
     end
 
+    def get_statuses
+      @statuses ||= Status.by_order
+    end
+
     def project_params
-      params.require(:project).permit(:customer_id, :name, :status)
+      params.require(:project).permit(:customer_id, :name, :status_id)
     end
 end

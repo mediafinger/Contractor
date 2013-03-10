@@ -10,7 +10,7 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
     create_table :projects do |t|
       t.integer :customer_id
       t.string  :name
-      t.string  :status
+      t.integer :status_id
       t.timestamps
     end
 
@@ -28,6 +28,12 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
       t.integer :project_id
       t.string  :product_id
       t.decimal :quantity,   :precision => 10, :scale => 3
+    end
+
+    create_table :statuses do |t|
+      t.string  :key
+      t.string  :name
+      t.integer :sorting
     end
 
     create_table :units do |t|

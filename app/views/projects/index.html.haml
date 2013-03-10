@@ -14,7 +14,7 @@
     %tr
       %td= project.name
       %td= project.customer_name
-      %td= project.status
+      %td= project.status_desc
       %td.number= project.total_price_as_currency
       %td= link_to 'Show', project
       %td= link_to 'Edit', edit_project_path(project)

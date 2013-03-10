@@ -41,9 +41,15 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   create_table "projects", :force => true do |t|
     t.integer  "customer_id"
     t.string   "name"
-    t.string   "status"
+    t.integer  "status_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.string  "key"
+    t.string  "name"
+    t.integer "sorting"
   end
 
   create_table "units", :force => true do |t|

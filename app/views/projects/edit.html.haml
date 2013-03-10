@@ -1,6 +1,6 @@
 %h2= I18n.t 'project.edit'
 
-= render 'form', :project => @project, :customers => @customers
+= render 'form', :project => @project, :customers => @customers, :statuses => @statuses
 
 %p
   %b= link_to I18n.t('project.add_product'), new_project_line_item_path(@project)
