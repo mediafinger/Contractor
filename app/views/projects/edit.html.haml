@@ -2,6 +2,7 @@
 
 = render 'form', :project => @project, :customers => @customers, :statuses => @statuses
 
+= render 'projects/line_items/project_items', :project => @project
 %p
   %b= link_to I18n.t('project.add_product'), new_project_line_item_path(@project)
 

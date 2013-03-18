@@ -13,6 +13,7 @@ en:
     offer: Übersetzungen
     prices: Sprachen und Preise
   product:
+    key: Produktschlüssel
     unit: Einheit
   project:
     all: Alle Projekte

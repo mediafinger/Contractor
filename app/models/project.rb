@@ -29,12 +29,18 @@ class Project < ActiveRecord::Base
     line_items.inject(0) { |sum, item| sum + item.price }
   end
 
-  def customer_exists
-    begin
-      Customer.find(self.customer_id)
-    rescue ActiveRecord::RecordNotFound
-      errors.add(:customer_id, "entry with customer_id #{self.customer_id} could not be found")
-      false
-    end
+  def is_active?
+    status_id < 6
   end
+
+  private
+
+    def customer_exists
+      begin
+        Customer.find(self.customer_id)
+      rescue ActiveRecord::RecordNotFound
+        errors.add(:customer_id, "entry with customer_id #{self.customer_id} could not be found")
+        false
+      end
+    end
 end

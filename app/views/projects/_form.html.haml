@@ -6,9 +6,14 @@
         - project.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :customer_id, I18n.t('project.customer')
-    = f.select :customer_id, options_from_collection_for_select(customers, "id", "name", project.customer_id) 
+  - if project.new_record?
+    .field
+      = f.label :customer_id, I18n.t('project.customer')
+      = f.select :customer_id, options_from_collection_for_select(customers, "id", "name", project.customer_id) 
+  - else
+    .field
+      %h3= project.customer_name
+      
   .field
     = f.label :name, I18n.t('project.name')
     = f.text_field :name

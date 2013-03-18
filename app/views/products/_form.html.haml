@@ -6,15 +6,27 @@
         - product.errors.full_messages.each do |msg|
           %li= msg
 
+  - if product.new_record?
+    .field
+      = f.label :key
+      = f.text_field :key
+  - else
+    .field
+      %h3= product.key
+  
   .field
     = f.label :name
     = f.text_field :name
-  .field
-    = f.label :key
-    = f.text_field :key
-  .field
-    = f.label :unit_id
-    = f.select :unit_id, options_from_collection_for_select(units, "id", "unit_desc", product.unit_id) 
+
+
+  - if product.new_record?
+    .field
+      = f.label :unit_id
+      = f.select :unit_id, options_from_collection_for_select(units, "id", "unit_desc", product.unit_id)
+  - else
+    .field
+      %h3= product.unit_desc
+
   .field
     = f.label :price
     = f.text_field :price
