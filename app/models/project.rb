@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   belongs_to  :status
   has_many    :line_items
   has_many    :products,  :through => :line_items
+  has_many    :project_logs
 
   validates :customer_id, :presence => true
   validate  :customer_exists

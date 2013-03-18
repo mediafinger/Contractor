@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+      log(@project, project_params, :created)
       flash[:notice] = 'Project was successfully created.'
     end
 
@@ -32,7 +33,10 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    status = @project.status_id
+
     if @project.update_attributes(project_params)
+      log(@project, project_params, :updated, status)
       flash[:notice] = 'Project was successfully updated.'
     end
 
@@ -52,5 +56,18 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:customer_id, :name, :status_id)
+    end
+
+    #TODO: Modularize and work with named params
+    def log(project, project_params, action, status = nil)
+      status_change = 0
+      if status
+        old_status = Status.find(status)
+        new_status = Status.find(project.status_id)
+
+        status_change = new_status.sorting - old_status.sorting
+      end
+
+      ProjectLog.create(project_id: project.id, params: project_params.to_json, action: action, status_change: status_change)
     end
 end

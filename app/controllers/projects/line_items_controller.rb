@@ -15,6 +15,7 @@ class Projects::LineItemsController < ApplicationController
   def create
     @line_item = LineItem.new(line_item_params)
     if @line_item.save
+      log(@project, @line_item.id, line_item_params, :line_item_created)
       flash[:notice] = 'LineItem was successfully created.'
       respond_with @project
     else
@@ -30,6 +31,7 @@ class Projects::LineItemsController < ApplicationController
   def update
     @line_item = @project.line_items.find(params[:id])
     if @line_item.update_attributes(line_item_params)
+      log(@project, @line_item.id, line_item_params, :line_item_updated)
       flash[:notice] = 'LineItem was successfully updated.'
       respond_with @project
     else
@@ -40,7 +42,11 @@ class Projects::LineItemsController < ApplicationController
 
   def destroy
     @line_item = @project.line_items.find(params[:id])
-    flash[:notice] = 'LineItem was successfully deleted.' if @line_item.destroy
+    line_item = @line_item
+    if @line_item.destroy
+      log(get_project, line_item.id, line_item.attributes, :line_item_deleted)
+      flash[:notice] = 'LineItem was successfully deleted.'
+    end
     respond_with @project
   end
 
@@ -58,6 +64,11 @@ class Projects::LineItemsController < ApplicationController
     def line_item_params
       params[:line_item].merge!(:project_id => params[:project_id])
       params.require(:line_item).permit(:product_id, :project_id, :modifier, :quantity)
+    end
+
+    #TODO: Modularize and work with named params
+    def log(project, line_item_id, line_item_params, action)
+      ProjectLog.create(project_id: project.id, line_item_id: line_item_id, params: line_item_params.to_json, action: action)
     end
 
 end

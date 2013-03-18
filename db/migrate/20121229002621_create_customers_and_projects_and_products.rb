@@ -14,6 +14,15 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
       t.timestamps
     end
 
+    create_table :project_logs do |t|
+      t.string  :action
+      t.text    :params
+      t.integer :project_id
+      t.integer :line_item_id
+      t.integer :status_change
+      t.timestamps
+    end
+
     create_table :products do |t|
       t.boolean :active,      :default => true
       t.string  :key

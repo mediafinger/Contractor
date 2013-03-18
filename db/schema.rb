@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.datetime "updated_at",                                                 :null => false
   end
 
+  create_table "project_logs", :force => true do |t|
+    t.string   "action"
+    t.text     "params"
+    t.integer  "project_id"
+    t.integer  "line_item_id"
+    t.integer  "status_change"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "projects", :force => true do |t|
     t.integer  "customer_id"
     t.string   "name"
