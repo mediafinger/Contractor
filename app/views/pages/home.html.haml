@@ -1,7 +1,16 @@
 %h2= "ToDo List #{I18n.t 'pages.home'}"
 %ul
-  %li Add Unit Controller and Views
-  %li Add hstore for Status
+  %li
+    Add Quotes and Invoices
+    %ul
+      %li Add address data to Customers
+      %li Add template / address data for Contractor
+      %li Add Invoice Model
+      %li Export Quotes and Invoices to PDF
+  %li
+    Write some Specs
+    %ul
+      %li No, really: spec the whole friggin' App!
   %li
     Allow to deactivate:
     %ul
@@ -11,38 +20,61 @@
   %li
     Forbid to delete:
     %ul
-      %li Customers
-      %li Products
+      %li <del>Customers</del>
+      %li <del>Products</del>
       %li Units
   %li
     Forbid to edit:
     %ul
-      %li Project customer
-      %li Product key, unit
-      %li Unit key
-  %li Add Authorization and Authentication mechanisms for Teams with Admins
+      %li <del>Project.customer</del>
+      %li <del>Product.key</del>, <del>Product.unit</del>
+      %li Unit.key
+      %li Status.key
+      %li Invoice (after send)
+  %li
+    Add User Model
+    %ul
+      %li Add Authentication
+      %li Add Authorization
+      %li Add Admin Role
+      %li Add Team Model
+      %li Add Signup
   %li
     Create Admin View
     %ul
       %li To activate / deactivate Customers, Products, Units
-      %li To add + edit Products, Units
-      %li To add + edit Statuses
+      %li To add + edit Products (modifier Admin only?)
+      %li To add + edit Units
+      %li To add + edit Statusesma
+      %li To add + edit Team Data
+      %li To add + edit Invoice Data
       %li To invite new Team Members
-      %li To deactivate Team Members
+      %li To remove Team Members
       %li To grant Admin status to Team Members
-  %li Add pagination and endless scrolling
-  %li Add Sorting and Filtering to all the Lists
   %li
-    Add Quotes and Invoices
+    Add Logging
     %ul
-      %li Enable Admin to enter company data
-      %li Enable team members to enter personal data
-      %li Enable Admin to enter customer data
-      %li Export Quotes and Invoices to PDF
-  %li Add Design
+      %li <del>Log Project Changes</del>
+      %li Log Customer Changes
+      %li Log Product Changes
+      %li Log Status Changes
+      %li Log Unit Changes
+      %li Log User Changes
+      %li Create a nice Activity Stream
   %li
     I18n everything to english and deutsch
     %ul
       %li ... and español
-      %li Enable Quotes and Invoices in all the languages, also for Unit-Names!
+      %li Enable Quotes and Invoices in all the languages, and with different tax rates!
+      %li 
+        Think about I18n for Unit names and Status names
+        %ul
+          %li Add hstore for Unit translations ?
+          %li Add hstore for Address data ?
+  %li
+    Add Design
+    %ul
+      %li Add pagination and endless scrolling
+      %li Add Sorting and Filtering to all the Lists
+      %li Make it look nice
   %li Go Live
