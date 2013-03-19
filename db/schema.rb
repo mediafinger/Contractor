@@ -21,12 +21,17 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.datetime "updated_at",                   :null => false
   end
 
+  add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
+
   create_table "line_items", :force => true do |t|
     t.integer "modifier",                                  :default => 0
+    t.integer "product_id"
     t.integer "project_id"
-    t.string  "product_id"
     t.decimal "quantity",   :precision => 10, :scale => 3
   end
+
+  add_index "line_items", ["product_id"], :name => "index_line_items_on_product_id"
+  add_index "line_items", ["project_id"], :name => "index_line_items_on_project_id"
 
   create_table "products", :force => true do |t|
     t.boolean  "active",                                   :default => true
@@ -38,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.datetime "updated_at",                                                 :null => false
   end
 
+  add_index "products", ["key"], :name => "index_products_on_key", :unique => true
+
   create_table "project_logs", :force => true do |t|
     t.string   "action"
     t.text     "params"
@@ -48,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "project_logs", ["project_id"], :name => "index_project_logs_on_project_id"
+
   create_table "projects", :force => true do |t|
     t.integer  "customer_id"
     t.string   "name"
@@ -56,11 +65,16 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "projects", ["customer_id"], :name => "index_projects_on_customer_id"
+  add_index "projects", ["status_id"], :name => "index_projects_on_status_id"
+
   create_table "statuses", :force => true do |t|
     t.string  "key"
     t.string  "name"
     t.integer "sorting"
   end
+
+  add_index "statuses", ["key"], :name => "index_statuses_on_key", :unique => true
 
   create_table "units", :force => true do |t|
     t.boolean "active", :default => true
@@ -69,5 +83,7 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.string  "name"
     t.string  "plural"
   end
+
+  add_index "units", ["key"], :name => "index_units_on_key", :unique => true
 
 end
