@@ -3,12 +3,13 @@ if Rails.env == "development"
   Customer.destroy_all
   Unit.destroy_all
   Product.destroy_all
+  Status.destroy_all
   Project.destroy_all
   LineItem.destroy_all
 end
 
 puts "Creating Customers ..."
-Customer.create(:name => '--')
+Customer.create(:name => '--',            :email => "none@example.com")
 Customer.create(:name => 'Film & TV',     :email => "film@example.com")
 Customer.create(:name => 'Glossar Group', :email => "glossar@example.com")
 

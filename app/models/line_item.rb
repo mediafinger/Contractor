@@ -2,9 +2,10 @@ class LineItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :project
 
-  validates :modifier,   :numericality => { :only_integer => true, :greater_than_or_equal_to => -100, :less_than_or_equal_to => 100 }
-  validates :project_id, :product_id, :quantity, :presence => true
-  validates :quantity,  :numericality => true
+  validates :modifier,    :numericality => { :only_integer => true, :greater_than_or_equal_to => -100, :less_than_or_equal_to => 100 }
+  validates :product_id,  :presence => true
+  validates :project_id,  :presence => true
+  validates :quantity,    :presence => true, :numericality => true
 
   delegate :customer_name,  :to => :project,  :prefix => false, :allow_nil => true
   delegate :key,            :to => :product,  :prefix => true,  :allow_nil => false
@@ -14,8 +15,9 @@ class LineItem < ActiveRecord::Base
   delegate :price,          :to => :product,  :prefix => true,  :allow_nil => false
   delegate :unit,           :to => :product,  :prefix => true,  :allow_nil => false
 
-  scope :by_unit, order('unit ASC')
-  
+  scope :by_product,   :joins => :product,   :order => "products.key"
+  scope :in_project,   proc { |project| where(:project_id => project) }
+
 
   def price
     (quantity * product.price * modification) / 100

@@ -6,7 +6,7 @@ class ProductDecorator < Draper::Decorator
   end
 
   def product_desc
-    "#{model.name} | #{model.key}"
+    "#{model.key} | #{model.name}"
   end
 
   def price_as_currency

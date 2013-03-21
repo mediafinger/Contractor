@@ -9,13 +9,15 @@ class Project < ActiveRecord::Base
   validate  :customer_exists
   validates :name,        :presence => true
   validates :status_id,   :presence => true
+  #TODO: 
+  # validate  :status_exists
 
   delegate :name,         :to => :customer, :prefix => true,  :allow_nil => false
   delegate :name,         :to => :status,   :prefix => true,  :allow_nil => false
   delegate :status_desc,  :to => :status,   :prefix => false, :allow_nil => false
 
   scope :by_name,     order("name ASC")
-  scope :by_customer, :joins => :customer, :order => "customer.name"
+  scope :by_customer, :joins => :customer, :order => "customers.name"
   scope :by_status,   :joins => :status,   :order => "statuses.sorting"
   scope :in_status,   proc { |status| where(:status_id => status) }
 
