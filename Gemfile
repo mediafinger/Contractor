@@ -3,7 +3,7 @@ source 'http://bundler-api.herokuapp.com'
 ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
-gem 'rails',                        '3.2.13'
+gem 'rails',                        '3.2.12'
 # gem 'rails',  :git => "git://github.com/rails/rails.git", :branch => "3-2-stable"
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
@@ -12,17 +12,17 @@ gem 'strong_parameters',            '~> 0.2'
 # gem 'cancan',                       '~> 1.6'
 # gem 'devise',                       '~> 2.2'
 
+gem 'coffee-rails',                 '~> 3.2'
 gem 'haml-rails',                   '~> 0.4'
 gem 'jquery-rails',                 '~> 2.2'
 gem 'execjs',                       '~> 1.4'
 gem 'libv8',                        '~> 3.11.8'
 gem 'therubyracer',                 '~> 0.11'  
+gem 'uglifier',                     '~> 1.3'
 
 group :assets do
-  gem 'sass-rails',                 '~> 3.2'
   gem 'bootstrap-sass',             '~> 2.3'
-  gem 'coffee-rails',               '~> 3.2'
-  gem 'uglifier',                   '~> 1.3'
+  gem 'sass-rails',                 '~> 3.2'
 end
 
 group :development do
