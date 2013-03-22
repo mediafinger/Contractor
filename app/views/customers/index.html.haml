@@ -16,7 +16,13 @@
       %td= customer.active
       %td= link_to 'Show', customer
       %td= link_to 'Edit', edit_customer_path(customer)
+      
+      - if customer.address  
+        %td= link_to 'Show Address', edit_address_path(customer.address)
+      - else
+        %td= link_to 'Add Address', new_address_path(owner_type: "Customer", owner_id: customer.id)
 
 %br
 
-= link_to 'New Customer', new_customer_path
+%p= link_to 'New Customer', new_customer_path
+%p= link_to 'All Addresses', addresses_path

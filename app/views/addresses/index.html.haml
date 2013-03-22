@@ -1,0 +1,26 @@
+%h1 Listing adresses
+
+%table
+  %tr
+    %th Owner
+    %th Name
+    %th Name
+    %th City
+    %th Tax
+    %th
+    %th
+
+  - @addresses.each do |address|
+    %tr
+      %td= "#{address.owner_type}: #{address.owner_id}"
+      %td= address.owner_name
+      %td= address.owner_email
+      %td= address.city
+      %td= address.tax_permill
+      %td= link_to 'Show', address
+      %td= link_to 'Edit', edit_address_path(address)
+
+%br
+
+%p= link_to 'New Address for User',     new_address_path(owner_type: "User")
+%p= link_to 'New Address for Customer', new_address_path(owner_type: "Customer")

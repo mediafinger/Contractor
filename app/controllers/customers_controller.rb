@@ -15,9 +15,9 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.new(customer_params)
-    flash[:notice] = 'Customer was successfully created.' if customer.save
-    respond_with customer
+    @customer = Customer.new(customer_params)
+    flash[:notice] = 'Customer was successfully created.' if @customer.save
+    respond_with @customer
   end
 
   def edit

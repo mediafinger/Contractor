@@ -1,0 +1,11 @@
+%h3= "#{@address.owner_type}: #{@address.owner_id} = #{@address.owner_name} - #{@address.owner_email}"
+%p
+  %b City:
+  = @address.city
+%p
+  %b Tax:
+  = @address.tax_permill
+
+= link_to 'Edit', edit_address_path(@address)
+\|
+= link_to 'Back', addresses_path

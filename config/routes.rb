@@ -8,6 +8,7 @@ Contractor::Application.routes.draw do
   match '/translations',          :to => 'pages#offer',     :via => :get
   
   resources :customers, :only => [:index, :show, :edit, :new, :update, :create]
+  resources :addresses, :only => [:index, :show, :edit, :new, :update, :create]
   resources :products,  :only => [:index, :show, :edit, :new, :update, :create]
   
   resources :projects,  :only => [:index, :show, :edit, :new, :update, :create] do
