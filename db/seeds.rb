@@ -24,10 +24,10 @@ Customer.create(:name => 'Glossar Group', :email => "glossar@example.com")
 
 
 puts "Creating Addresses ..."
-Address.create(:city => "Barcelona", :owner_type => "User", :owner_id => User.find_by_email("andy@mediafinger.com").id, :mobile => "+34688988550")
-Address.create(:city => "Barcelona", :owner_type => "User", :owner_id => User.find_by_email("michela.donda@gmail.com").id, :company_name => "DondaLations")
-Address.create(:city => "Hamburg",   :owner_type => "Customer", :owner_id => Customer.find_by_email("glossar@example.com").id, :company_name => "Glossar Group Worldwide GmbH")
-Address.create(:city => "Barcelona", :owner_type => "Customer", :owner_id => Customer.find_by_email("film@example.com").id, :company_name => "Film & TV Schnitt und Vertonungs AG")
+Address.create(:city => "Barcelona", :owner_type => "User",     :owner => User.find_by_email("andy@mediafinger.com"),    :mobile => "+34688988550")
+Address.create(:city => "Barcelona", :owner_type => "User",     :owner => User.find_by_email("michela.donda@gmail.com"), :company_name => "DondaLations")
+Address.create(:city => "Hamburg",   :owner_type => "Customer", :owner => Customer.find_by_email("glossar@example.com"), :company_name => "Glossar Group Worldwide GmbH")
+Address.create(:city => "Barcelona", :owner_type => "Customer", :owner => Customer.find_by_email("film@example.com"),     :company_name => "Film & TV Schnitt und Vertonungs AG")
 
 
 puts "Creating Units ..."
@@ -68,31 +68,31 @@ p7 = Project.create(:customer => Customer.find_by_name("--"),                   
 
 
 puts "Creating LineItems ..."
-LineItem.create(:project_id => p1.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 3000,    :modifier => 25)
-LineItem.create(:project_id => p1.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 2200,    :modifier => 25)
+LineItem.create(:project => p1, :product => Product.find_by_key(:trans_de_it),  :quantity => 3000,    :modifier => 25)
+LineItem.create(:project => p1, :product => Product.find_by_key(:trans_de_it),  :quantity => 2200,    :modifier => 25)
 
-LineItem.create(:project_id => p2.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 2400,    :modifier => -29)
+LineItem.create(:project => p2, :product => Product.find_by_key(:trans_de_it),  :quantity => 2400,    :modifier => -29)
 
-LineItem.create(:project_id => p3.id, :product_id => Product.find_by_key(:trans_en_it).id,   :quantity => 8200)
-LineItem.create(:project_id => p3.id, :product_id => Product.find_by_key(:consulting).id,    :quantity => 4)
-LineItem.create(:project_id => p3.id, :product_id => Product.find_by_key(:voucher).id,       :quantity => 25)
+LineItem.create(:project => p3, :product => Product.find_by_key(:trans_en_it),  :quantity => 8200)
+LineItem.create(:project => p3, :product => Product.find_by_key(:consulting),   :quantity => 4)
+LineItem.create(:project => p3, :product => Product.find_by_key(:voucher),      :quantity => 25)
 
-LineItem.create(:project_id => p4.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 600,    :modifier => -29)
-LineItem.create(:project_id => p4.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 1700,   :modifier => -29)
-LineItem.create(:project_id => p4.id, :product_id => Product.find_by_key(:trans_en_it).id,   :quantity => 85,     :modifier => -29)
-LineItem.create(:project_id => p4.id, :product_id => Product.find_by_key(:proof_it).id,      :quantity => 500,    :modifier => -29)
+LineItem.create(:project => p4, :product => Product.find_by_key(:trans_de_it),  :quantity => 600,     :modifier => -29)
+LineItem.create(:project => p4, :product => Product.find_by_key(:trans_de_it),  :quantity => 1700,    :modifier => -29)
+LineItem.create(:project => p4, :product => Product.find_by_key(:trans_en_it),  :quantity => 85,      :modifier => -29)
+LineItem.create(:project => p4, :product => Product.find_by_key(:proof_it),     :quantity => 500,     :modifier => -29)
 
-LineItem.create(:project_id => p5.id, :product_id => Product.find_by_key(:trans_en_it).id,   :quantity => 4000,    :modifier => -25)
-LineItem.create(:project_id => p5.id, :product_id => Product.find_by_key(:layout_word).id,   :quantity => 4000,    :modifier => 20)
+LineItem.create(:project => p5, :product => Product.find_by_key(:trans_en_it),  :quantity => 4000,    :modifier => -25)
+LineItem.create(:project => p5, :product => Product.find_by_key(:layout_word),  :quantity => 4000,    :modifier => 20)
 
-LineItem.create(:project_id => p6.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 2450,    :modifier => -25)
+LineItem.create(:project => p6, :product => Product.find_by_key(:trans_de_it),  :quantity => 2450,    :modifier => -25)
 
-LineItem.create(:project_id => p7.id, :product_id => Product.find_by_key(:setup_fee).id,     :quantity => 1)
-LineItem.create(:project_id => p7.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 890,     :modifier => 25)
-LineItem.create(:project_id => p7.id, :product_id => Product.find_by_key(:trans_de_it).id,   :quantity => 2200,    :modifier => 25)
+LineItem.create(:project => p7, :product => Product.find_by_key(:setup_fee),    :quantity => 1)
+LineItem.create(:project => p7, :product => Product.find_by_key(:trans_de_it),  :quantity => 890,     :modifier => 25)
+LineItem.create(:project => p7, :product => Product.find_by_key(:trans_de_it),  :quantity => 2200,    :modifier => 25)
 
 
 puts "Creating Invoices ..."
-Invoice.create(:sent => 1.week.ago, :project_id => p1.id, :kind => :offer,   :until => 1.day.ago,       :user_id => User.find_by_email("michela.donda@gmail.com").id)
-Invoice.create(:sent => 1.week.ago, :project_id => p5.id, :kind => :quote,   :until => 4.days.ago,      :user_id => User.find_by_email("michela.donda@gmail.com").id)
-Invoice.create(:sent => 1.day.ago,  :project_id => p5.id, :kind => :invoice, :until => 1.week.from_now, :user_id => User.find_by_email("michela.donda@gmail.com").id) 
+Invoice.create(:sent => 1.week.ago, :project => p1, :kind => :offer,   :until => 1.day.ago,       :user => User.find_by_email("michela.donda@gmail.com"))
+Invoice.create(:sent => 1.week.ago, :project => p5, :kind => :quote,   :until => 4.days.ago,      :user => User.find_by_email("michela.donda@gmail.com"))
+Invoice.create(:sent => 1.day.ago,  :project => p5, :kind => :invoice, :until => 1.week.from_now, :user => User.find_by_email("michela.donda@gmail.com")) 
