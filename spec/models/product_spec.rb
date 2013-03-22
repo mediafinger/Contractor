@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Product do
 
   before :all do
-    @p1z = Product.create(key: "pZ", price: 19.95, unit_id: 1)
-    @p2a = Product.create(key: "pA", price: 19.95, unit_id: 1)
+    @p1z = Product.create(key: "pZ", price: 19.95, unit_id: 1, active: false)
+    @p2a = Product.create(key: "pA", price: 19.95, unit_id: 1, active: true)
   end
     
   after :all do
@@ -59,6 +59,18 @@ describe Product do
     context "when ordering by_key" do
       it "returns the Products in alphabetical order" do
         Product.by_key.should == [@p2a, @p1z]
+      end
+    end
+
+    context "when filtering for active Products" do
+      it "returns only active Products" do
+        Product.is_active.should == [@p2a]
+      end
+    end
+
+    context "when filtering for archived Products" do
+      it "returns only inactive Products" do
+        Product.is_archived.should == [@p1z]
       end
     end
   end

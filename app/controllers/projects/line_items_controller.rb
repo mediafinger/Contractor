@@ -56,7 +56,7 @@ class Projects::LineItemsController < ApplicationController
   private
 
     def get_products
-      @products ||= ProductDecorator.decorate_collection(Product.by_key)
+      @products ||= ProductDecorator.decorate_collection(Product.is_active.by_key)
     end
 
     def get_project

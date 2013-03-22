@@ -30,8 +30,12 @@
   .field
     = f.label :price
     = f.text_field :price
-  .field
-    = f.label :active
-    = f.check_box :active
+
+  - unless product.new_record? || product.active == false
+    .field
+      = f.label :active
+      = f.check_box :active, :onchange => "alert('Archieving an entry can not be undone!');" 
+    / #TODO: I18n + better explanation + only on deactivating + nicify
+
   .actions
     = f.submit 'Save'
