@@ -19,6 +19,7 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
       t.string   :owner_type
       t.string   :region
       t.string   :street
+      t.string   :tax_permill
       t.string   :tax_number
       t.string   :website
       t.string   :zip
@@ -35,6 +36,21 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
       t.timestamps
     end
     add_index :customers, :email, :unique => true
+
+    create_table :invoices do |t|
+      t.boolean :accepted,      :default => false
+      t.string  :kind
+      t.boolean :open,          :default => true
+      t.integer :project_id
+      t.date    :sent
+      t.date    :until
+      t.integer :user_id
+      t.timestamps
+    end
+    add_index :invoices, :project_id
+    add_index :invoices, :kind
+    add_index :invoices, :until
+    add_index :invoices, :user_id
 
     create_table :projects do |t|
       t.integer :customer_id

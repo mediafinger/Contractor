@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
     t.string   "owner_type"
     t.string   "region"
     t.string   "street"
+    t.string   "tax_permill"
     t.string   "tax_number"
     t.string   "website"
     t.string   "zip"
@@ -52,6 +53,23 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
+
+  create_table "invoices", :force => true do |t|
+    t.boolean  "accepted",   :default => false
+    t.string   "kind"
+    t.boolean  "open",       :default => true
+    t.integer  "project_id"
+    t.date     "sent"
+    t.date     "until"
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "invoices", ["kind"], :name => "index_invoices_on_kind"
+  add_index "invoices", ["project_id"], :name => "index_invoices_on_project_id"
+  add_index "invoices", ["until"], :name => "index_invoices_on_until"
+  add_index "invoices", ["user_id"], :name => "index_invoices_on_user_id"
 
   create_table "line_items", :force => true do |t|
     t.integer "modifier",                                  :default => 0
