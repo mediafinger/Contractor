@@ -9,7 +9,8 @@ class Projects::LineItemsController < ApplicationController
   end
 
   def new
-    @line_item = LineItem.new
+    params[:selected_product_id] = params[:set_selected_to] || @products.first
+    @line_item = LineItem.new(quantity: params[:quantity])
   end
 
   def create
@@ -20,6 +21,7 @@ class Projects::LineItemsController < ApplicationController
       respond_with @project
     else
       flash[:error] = 'LineItem could not be saved.'
+      params[:selected_product_id] = params[:line_item][:product_id] || @products.first
       render action: :new
     end
   end
@@ -54,7 +56,7 @@ class Projects::LineItemsController < ApplicationController
   private
 
     def get_products
-      @products ||= ProductDecorator.decorate_collection(Product.all)
+      @products ||= ProductDecorator.decorate_collection(Product.by_key)
     end
 
     def get_project

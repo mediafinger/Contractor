@@ -7,17 +7,26 @@
           %li= msg
 
   .field
-    = f.label :product_id, I18n.t('project.add_product')
-    = f.select :product_id, options_from_collection_for_select(products, "id", "product_desc", line_item.product_id) 
-  .field
-    = f.label :quantity, I18n.t('project.line_item.quantity')
-    = f.number_field :quantity, :step => 0.001
+    - if line_item.new_record?
+      = f.label :product_id, I18n.t('project.add_product')
+      = f.select :product_id, options_from_collection_for_select(products, "id", "product_desc", params[:selected_product_id]), {}
+    - else
+      %h3= "#{line_item.product_key} | #{line_item.product_name}"
 
-    / ToDo: add some Ajax that watches onChange of the product_selection, to reload the quantity field accordingly
-    / - if line_item.needs_digits?
-    /   = f.number_field :quantity, :step => 0.001
-    / -else
-    /   = f.number_field :quantity, :step => 1, :value => line_item.quantity.to_i
+  .field#line_item_quantity_setter
+    = f.label :quantity, I18n.t('project.line_item.quantity')
+    
+    - if line_item.new_record?
+      - if Product.find_by_id(params[:selected_product_id]).needs_digits?
+        = f.number_field :quantity, :step => 0.001, :value => params[:line_item] && params[:line_item][:quantity]
+      -else
+        = f.number_field :quantity, :step => 1, :value => params[:line_item] && params[:line_item][:quantity].to_i
+    
+    - elsif !line_item.new_record?
+      - if line_item.needs_digits?
+        = f.number_field :quantity, :step => 0.001, :value => line_item.quantity
+      -else
+        = f.number_field :quantity, :step => 1, :value => line_item.quantity.to_i
 
   .field
     = f.label :modifier, I18n.t('project.line_item.modifier')
@@ -25,3 +34,29 @@
 
   .actions
     = f.submit 'Save'
+
+/  #TODO: add LineItemDecorator!!!
+/  #TODO: and refactor the shit out of here!!!!
+
+/ JavaScript bound to product select box's onchange event
+/ will call #new.html of this controller again and 
+/ pass as parameters the selected product and the set quantity
+/ The whole page (sic!) will be returned, but 
+/ only the quantity selecto will be exchanged, to fit products with or without digits
+:javascript
+  $('#line_item_product_id').change(function(){
+    $.ajax({
+      url: "new",
+      type: "GET",
+      data: {
+        set_selected_to: $('#line_item_product_id option:selected').val(),
+        line_item: { quantity: $('#line_item_quantity').val() }
+      },
+      dataType: "html",
+      success: function(data) {
+              var innerHTML = $(data).find("#line_item_quantity_setter");
+              $("#line_item_quantity_setter").html(innerHTML);
+
+           }
+    })
+  });
