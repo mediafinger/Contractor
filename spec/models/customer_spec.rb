@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Customer do
 
   before :all do
-    @c1z = Customer.create(name: "Zett", email: "zet@example.com")
-    @c2a = Customer.create(name: "Alpha", email: "alpha@example.com")
+    @c1z = Customer.create(name: "Zett", email: "zet@example.com", active: false)
+    @c2a = Customer.create(name: "Alpha", email: "alpha@example.com", active: true)
   end
 
   after :all do
@@ -49,6 +49,18 @@ describe Customer do
     context "when ordering by_name" do
       it "returns the Customers in alphabetical order" do
         Customer.by_name.should == [@c2a, @c1z]
+      end
+    end
+
+    context "when filtering for active Customers" do
+      it "returns only active Customers" do
+        Customer.is_active.should == [@c2a]
+      end
+    end
+
+    context "when filtering for archived Customers" do
+      it "returns only inactive Customers" do
+        Customer.is_archived.should == [@c1z]
       end
     end
   end

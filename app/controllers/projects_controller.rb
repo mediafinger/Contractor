@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   private
 
     def get_customers
-      @customers ||= Customer.all
+      @customers ||= Customer.is_active.by_name
     end
 
     def get_statuses

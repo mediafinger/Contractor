@@ -9,11 +9,16 @@
   .field
     = f.label :name
     = f.text_field :name
+  
   .field
     = f.label :email
     = f.text_field :email
-  .field
-    = f.label :active
-    = f.check_box :active
+  
+  - unless customer.new_record? || customer.active == false
+    .field
+      = f.label :active
+      = f.check_box :active, :onchange => "alert('Archieving an entry can not be undone!');" 
+    / #TODO: I18n + better explanation + only on deactivating + nicify
+
   .actions
     = f.submit 'Save'
