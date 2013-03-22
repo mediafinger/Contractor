@@ -1,6 +1,7 @@
-class Customer < ActiveRecord::Base
-  has_many :projects
-  has_one  :address, :as => :owner, :dependent => :destroy
+class User < ActiveRecord::Base
+  #has_many :projects
+  #belongs_to  :team
+  has_one     :address, :as => :owner, :dependent => :destroy
 
   validates :name,  :presence => true
   validates :email, :presence => true, :uniqueness => true  # { :scope => :team }

@@ -13,8 +13,38 @@
 
 ActiveRecord::Schema.define(:version => 20121229002621) do
 
+  create_table "addresses", :force => true do |t|
+    t.string   "bank_account_number"
+    t.string   "bank_name"
+    t.string   "bank_number"
+    t.string   "city"
+    t.string   "company_name"
+    t.string   "country"
+    t.text     "description"
+    t.string   "email"
+    t.string   "fax"
+    t.string   "fon"
+    t.string   "foto"
+    t.string   "language"
+    t.string   "mobile"
+    t.string   "name"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.string   "region"
+    t.string   "street"
+    t.string   "tax_number"
+    t.string   "website"
+    t.string   "zip"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "addresses", ["owner_id"], :name => "index_addresses_on_owner_id"
+  add_index "addresses", ["owner_type"], :name => "index_addresses_on_owner_type"
+
   create_table "customers", :force => true do |t|
     t.boolean  "active",     :default => true
+    t.date     "birthday"
     t.string   "email"
     t.string   "name"
     t.datetime "created_at",                   :null => false
@@ -85,5 +115,16 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   end
 
   add_index "units", ["key"], :name => "index_units_on_key", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.boolean  "active",     :default => true
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "name"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

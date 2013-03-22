@@ -1,7 +1,35 @@
 class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
   def change
+    create_table :addresses, :force => true do |t|
+      t.string   :bank_account_number
+      t.string   :bank_name
+      t.string   :bank_number
+      t.string   :city
+      t.string   :company_name
+      t.string   :country
+      t.text     :description
+      t.string   :email
+      t.string   :fax
+      t.string   :fon
+      t.string   :foto
+      t.string   :language
+      t.string   :mobile
+      t.string   :name
+      t.integer  :owner_id
+      t.string   :owner_type
+      t.string   :region
+      t.string   :street
+      t.string   :tax_number
+      t.string   :website
+      t.string   :zip
+      t.timestamps
+    end
+    add_index :addresses, :owner_id
+    add_index :addresses, :owner_type
+
     create_table :customers do |t|
       t.boolean :active,      :default => true
+      t.date    :birthday
       t.string  :email
       t.string  :name
       t.timestamps
@@ -61,6 +89,15 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
       t.string  :plural
     end
     add_index :units, :key, :unique => true
+
+    create_table :users do |t|
+      t.boolean :active,      :default => true
+      t.date    :birthday
+      t.string  :email
+      t.string  :name
+      t.timestamps
+    end
+    add_index :users, :email, :unique => true
 
   end
 end
