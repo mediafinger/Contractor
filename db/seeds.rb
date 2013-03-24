@@ -13,21 +13,21 @@ end
 
 
 puts "Creating Users ..."
-User.create(:name => 'Andy',  :email => "andy@mediafinger.com",     :birthday => "19770605")
-User.create(:name => 'Micky', :email => "michela.donda@gmail.com",  :birthday => "19790926")
+User.create(:name => 'Andy',  :email => "andy@mediafinger.com",     :birthday => "19770605",  :active => false,   :admin => true)
+User.create(:name => 'Micky', :email => "michela.donda@gmail.com",  :birthday => "19790926",  :active => false)
 
 
 puts "Creating Customers ..."
 Customer.create(:name => '--',            :email => "none@example.com")
 Customer.create(:name => 'Film & TV',     :email => "film@example.com")
-Customer.create(:name => 'Glossar Group', :email => "glossar@example.com")
+Customer.create(:name => 'Glossa Group',  :email => "glossa@example.com")
 
 
 puts "Creating Addresses ..."
 Address.create(:city => "Barcelona", :owner_type => "User",     :owner => User.find_by_email("andy@mediafinger.com"),    :mobile => "+34688988550")
 Address.create(:city => "Barcelona", :owner_type => "User",     :owner => User.find_by_email("michela.donda@gmail.com"), :company_name => "DondaLations")
-Address.create(:city => "Hamburg",   :owner_type => "Customer", :owner => Customer.find_by_email("glossar@example.com"), :company_name => "Glossar Group Worldwide GmbH")
-Address.create(:city => "Barcelona", :owner_type => "Customer", :owner => Customer.find_by_email("film@example.com"),     :company_name => "Film & TV Schnitt und Vertonungs AG")
+Address.create(:city => "Hamburg",   :owner_type => "Customer", :owner => Customer.find_by_email("glossa@example.com"),  :company_name => "Glossar Group Worldwide GmbH")
+Address.create(:city => "Barcelona", :owner_type => "Customer", :owner => Customer.find_by_email("film@example.com"),    :company_name => "Film & TV Schnitt und Vertonungs AG")
 
 
 puts "Creating Units ..."
@@ -59,11 +59,11 @@ Status.create(:key => :canceled,            :name => "abgebrochen",             
 
 puts "Creating Projects ..."
 p1 = Project.create(:customer => Customer.find_by_name("--"),                   :name => "Wunschkonzert",        :status => Status.find_by_key(:opportunity))
-p2 = Project.create(:customer => Customer.find_by_email("glossar@example.com"), :name => "Linsen - neuer Kunde", :status => Status.find_by_key(:offer))
+p2 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Linsen - neuer Kunde", :status => Status.find_by_key(:offer))
 p3 = Project.create(:customer => Customer.find_by_email("film@example.com"),    :name => "Erstauftrag",          :status => Status.find_by_key(:in_progress))
-p4 = Project.create(:customer => Customer.find_by_email("glossar@example.com"), :name => "Kleinkram",            :status => Status.find_by_key(:done))
-p5 = Project.create(:customer => Customer.find_by_email("glossar@example.com"), :name => "Eppendorf - Februar",  :status => Status.find_by_key(:waiting_for_payment))
-p6 = Project.create(:customer => Customer.find_by_email("glossar@example.com"), :name => "Eppendorf - Januar",   :status => Status.find_by_key(:successful))
+p4 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Kleinkram",            :status => Status.find_by_key(:done))
+p5 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Februar",  :status => Status.find_by_key(:waiting_for_payment))
+p6 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Januar",   :status => Status.find_by_key(:successful))
 p7 = Project.create(:customer => Customer.find_by_name("--"),                   :name => "abgelehnt",            :status => Status.find_by_key(:canceled))
 
 
