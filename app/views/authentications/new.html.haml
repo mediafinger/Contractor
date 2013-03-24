@@ -1,5 +1,5 @@
 %h2 Request Sign-in Link
-= form_for(:user, :url => authentication_path) do |f|
+= form_for(:user, :url => user_session_path) do |f|
   %div
     = f.label :email
     %br/

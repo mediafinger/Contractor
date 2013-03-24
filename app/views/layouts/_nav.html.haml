@@ -24,4 +24,4 @@
           - if user_signed_in?
             %li.nav-head= link_to I18n.t('shared.logout'), destroy_user_session_path, :method => :delete
           - else
-            %li.nav-head= link_to I18n.t('shared.login'), authentication_path
+            %li.nav-head= link_to I18n.t('shared.login'), new_user_session_path

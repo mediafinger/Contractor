@@ -1,14 +1,12 @@
 Contractor::Application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
-  
-  match :authentication,          :to => 'authentications#new',     :via => :get
-  match :authentication,          :to => 'authentications#create',  :via => :post
-
   root                            :to => 'pages#home',      :via => :get
 
-  as :user do
-    root                          :to => "projects#index",  :via => :get,   :as => :user_root
+  # Overwrite devise pathes to run own token based authentication 
+  scope "/users" do
+    match :sign_in,                 :to => 'authentications#new',     :via => :get,   :as => :new_user_session
+    match :sign_in,                 :to => 'authentications#create',  :via => :post,  :as => :user_session
   end
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   match '/calendar',              :to => 'pages#calendar',  :via => :get
   match '/contact',               :to => 'pages#contact',   :via => :get
