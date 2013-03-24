@@ -29,6 +29,9 @@ Contractor::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  # Set default mailer for devise
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 

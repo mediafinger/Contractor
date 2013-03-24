@@ -12,6 +12,7 @@ en:
     legal: Impressum
     offer: Übersetzungen
     prices: Sprachen und Preise
+    register: Registrieren
   product:
     key: Produktschlüssel
     unit: Einheit
@@ -33,8 +34,11 @@ en:
       quantity: Anzahl
   shared:
     back: zurück
-    edit: bearbeiten
     delete: löschen
+    edit: bearbeiten
+    edit_settings: Einstellungen
+    index: Übersicht
+    login: Login
+    logout: Logout
     save: speichern
     show: anzeigen
-    index: Übersicht

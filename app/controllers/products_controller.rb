@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :authenticate_user!
   respond_to :html
 
   before_filter :get_units, :only => [:new, :create, :edit, :update]

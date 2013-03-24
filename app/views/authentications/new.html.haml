@@ -1,0 +1,8 @@
+%h2 Request Sign-in Link
+= form_for(:user, :url => authentication_path) do |f|
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email, :autofocus => true
+  
+  %div= f.submit "Send a Link to this Email address"

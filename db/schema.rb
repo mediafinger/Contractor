@@ -135,14 +135,18 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   add_index "units", ["key"], :name => "index_units_on_key", :unique => true
 
   create_table "users", :force => true do |t|
-    t.boolean  "active",     :default => true
+    t.boolean  "active",               :default => true
+    t.boolean  "admin",                :default => false
     t.date     "birthday"
     t.string   "email"
     t.string   "name"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "authentication_token"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

@@ -9,8 +9,8 @@ gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
 gem 'strong_parameters',            '~> 0.2'
 
+gem 'devise', :git => "https://github.com/plataformatec/devise.git"  #'~> 2.2'
 # gem 'cancan',                       '~> 1.6'
-# gem 'devise',                       '~> 2.2'
 
 gem 'coffee-rails',                 '~> 3.2'
 gem 'haml-rails',                   '~> 0.4'

@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/plataformatec/devise.git
+  revision: 72cbafa3225bab8904d62df9b1f5cbaaa0322931
+  specs:
+    devise (2.2.3)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
+
 GEM
   remote: http://bundler-api.herokuapp.com/
   specs:
@@ -30,6 +40,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     awesome_print (1.1.0)
+    bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -71,6 +82,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.7.1)
+    orm_adapter (0.4.0)
     pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -137,6 +149,8 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.1)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -145,6 +159,7 @@ DEPENDENCIES
   awesome_print (~> 1.1)
   bootstrap-sass (~> 2.3)
   coffee-rails (~> 3.2)
+  devise!
   draper (~> 1.1)
   execjs (~> 1.4)
   fabrication (~> 2.6)

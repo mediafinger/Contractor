@@ -22,6 +22,13 @@
 require "spec_helper"
 
 describe CustomersController do
+
+  let (:user) { User.create(name: "Andy", email: "admin@example.com") }
+
+  before :each do 
+    sign_in user
+  end
+
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index

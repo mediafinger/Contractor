@@ -51,6 +51,9 @@ Contractor::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  # Set default mailer for devise
+  config.action_mailer.default_url_options = { :host => 'localhost' }  #TODO: set Mailer for PRODUCTION !!!
+
   # Enable threaded mode
   # config.threadsafe!
 

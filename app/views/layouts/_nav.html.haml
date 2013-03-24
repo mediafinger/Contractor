@@ -13,3 +13,15 @@
           %li.nav-head= link_to I18n.t('pages.offer'),   translations_path
           %li.nav-head= link_to I18n.t('pages.prices'),  languages_and_prices_path
           %li.nav-head= link_to I18n.t('pages.contact'), contact_path
+        
+        %ul.nav.pull-right
+          / devise Links:
+          - if user_signed_in?
+            %li.nav-head= link_to I18n.t('shared.edit_settings'), edit_user_registration_path
+          - else
+            %li.nav-head= link_to I18n.t('pages.register'), new_user_registration_path
+
+          - if user_signed_in?
+            %li.nav-head= link_to I18n.t('shared.logout'), destroy_user_session_path, :method => :delete
+          - else
+            %li.nav-head= link_to I18n.t('shared.login'), authentication_path

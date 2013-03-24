@@ -1,4 +1,4 @@
-class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
+class CreateCustomersAndProjectsAndProductsAndUsers < ActiveRecord::Migration
   def change
     create_table :addresses, :force => true do |t|
       t.string   :bank_account_number
@@ -108,12 +108,18 @@ class CreateCustomersAndProjectsAndProducts < ActiveRecord::Migration
 
     create_table :users do |t|
       t.boolean :active,      :default => true
+      t.boolean :admin,       :default => false        
       t.date    :birthday
       t.string  :email
       t.string  :name
+
+      t.string   :authentication_token    # devise Token authenticatable
+      t.datetime :remember_created_at     # devise Rememberable
+      
       t.timestamps
     end
     add_index :users, :email, :unique => true
+    add_index :users, :authentication_token, :unique => true
 
   end
 end
