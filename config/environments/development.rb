@@ -13,14 +13,27 @@ Contractor::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Set default mailer for devise
+  # Care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+  # Send mail (yes, really!)
+  config.action_mailer.perform_deliveries = true
+  # for devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Set delivery method for development to :letter_opener
   config.action_mailer.delivery_method = :letter_opener
-
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto =>  true,
+    :address              =>  'smtp.gmail.com',
+    :port                 =>  '587',               # '465',
+    # :tls                 =>  true,
+    :domain               =>  'onosono.com',
+    :authentication       =>  :plain,             # :login,
+    :user_name            =>  'info@onosono.com',
+    :password             =>  ENV['EMAIL_PASSWORD_SUPPORT_ONOSONO']
+  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

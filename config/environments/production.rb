@@ -48,11 +48,25 @@ Contractor::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-
-  # Set default mailer for devise
-  config.action_mailer.default_url_options = { :host => 'localhost' }  #TODO: set Mailer for PRODUCTION !!!
+  # Care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+  # Send mail (yes, really!)
+  config.action_mailer.perform_deliveries = true
+  # for devise
+  config.action_mailer.default_url_options = { :host => 'onosono.com' }
+  # Set delivery method for production to :smtp
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto =>  true,
+    :address              =>  'smtp.gmail.com',
+    :port                 =>  '587',               # '465',
+    # :tls                 =>  true,
+    :domain               =>  'onosono.com',
+    :authentication       =>  :plain,             # :login,
+    :user_name            =>  'info@onosono.com',
+    :password             =>  ENV['EMAIL_PASSWORD_SUPPORT_ONOSONO']
+  }
 
   # Enable threaded mode
   # config.threadsafe!
