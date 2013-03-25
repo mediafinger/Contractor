@@ -11,20 +11,20 @@ class AddressesController < BaseAuthenticationController
   end
 
   def new
-    if params[:owner_id] && params[:owner_type]
-      klass = params[:owner_type].constantize
+    klass = (params[:owner_type] && params[:owner_type].constantize) || User
+
+    if params[:owner_id]
       @owners = [ klass.find_by_id(params[:owner_id]) ]
     else
-      klass = (params[:owner_type] && params[:owner_type].constantize) || User
       get_owners(klass)
     end
 
     if @owners.empty?
       flash[:error] = 'Keine neuen Addressen erforderlich.'
       redirect_to action: :index
+    else
+      @address = Address.new
     end
-
-    @address = Address.new
   end
 
   def create
