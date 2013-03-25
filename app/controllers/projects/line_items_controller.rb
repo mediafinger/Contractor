@@ -1,4 +1,4 @@
-class Projects::LineItemsController < ApplicationController
+class Projects::LineItemsController < BaseAuthenticationController
   respond_to :html
 
   before_filter :get_products, :only => [:new, :create, :edit, :update]

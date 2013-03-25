@@ -1,5 +1,4 @@
-class ProjectsController < ApplicationController
-  before_filter :authenticate_user!
+class ProjectsController < BaseAuthenticationController
   respond_to :html
 
   before_filter :get_customers, :only => [:new, :create, :edit, :update]

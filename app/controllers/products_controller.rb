@@ -1,5 +1,4 @@
-class ProductsController < ApplicationController
-  before_filter :authenticate_user!
+class ProductsController < BaseAuthenticationController
   respond_to :html
 
   before_filter :get_units, :only => [:new, :create, :edit, :update]
@@ -30,7 +29,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    flash[:notice] = 'Product was successfully updated.' if @product.update_attributes(product_params)
+    flash[:notice] = 'Product was successfully updated.' if @product.update_attributes(update_params)
     respond_with @product
   end
 
@@ -43,5 +42,9 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(:active, :key, :name, :price, :unit_id)
+    end
+
+    def update_params
+      params.require(:product).permit(:active, :name, :price)
     end
 end

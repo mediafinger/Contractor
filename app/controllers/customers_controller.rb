@@ -1,5 +1,4 @@
-class CustomersController < ApplicationController
-  before_filter :authenticate_user!
+class CustomersController < BaseAuthenticationController
   respond_to :html
 
   def index
