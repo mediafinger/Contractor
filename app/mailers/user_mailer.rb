@@ -7,6 +7,15 @@ class UserMailer < ActionMailer::Base
   #   en.user_mailer.signup_confirmation.subject
   #
 
+  def activation_confirmation(user)
+    @token = user.authentication_token
+    @link = "http://localhost:3000/projects/?authentication_token=#{user.authentication_token}"
+    @greeting = "Thank you for choosing Contractor"
+    @name = user.name
+
+    mail to: user.email
+  end
+
   def signin_token(user)
     @token = user.authentication_token
     @link = "http://localhost:3000/projects/?authentication_token=#{user.authentication_token}"
