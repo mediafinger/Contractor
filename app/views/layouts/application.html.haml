@@ -12,9 +12,6 @@
     .container
       .row
         .span12
-          - if true  
-            = render 'layouts/admin' 
-
           %p
             - flash.each do |key, value|
               = content_tag(:div, value, :class => "round flash #{key}")

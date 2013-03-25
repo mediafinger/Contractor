@@ -14,8 +14,8 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Bitte schau in deine Emails und clicke auf den Link, um Dich einzuloggen!"
       redirect_to new_user_session_path
     else
-      flash[:error] = "Unter dieser Email existiert kein User - bitte registrieren Sie sich zuerst."
-      redirect_to new_user_registration_path
+      flash[:error] = "Unter dieser Email existiert kein User - hast Du Dich vertippt?"
+      redirect_to new_user_session_path
     end
   end
 end

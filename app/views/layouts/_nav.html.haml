@@ -9,19 +9,22 @@
         %span.icon-bar
       %a.brand{:href => root_path}=I18n.t('pages.home')
       .container.nav-collapse       
-        %ul.nav
-          %li.nav-head= link_to I18n.t('pages.offer'),   translations_path
-          %li.nav-head= link_to I18n.t('pages.prices'),  languages_and_prices_path
-          %li.nav-head= link_to I18n.t('pages.contact'), contact_path
-        
-        %ul.nav.pull-right
-          / devise Links:
-          - if user_signed_in?
+    
+        - if user_signed_in?
+          %ul.nav
+            %li.nav-head= link_to I18n.t('admin.customers'),    customers_path
+            %li.nav-head= link_to I18n.t('admin.products'),     products_path
+            %li.nav-head= link_to I18n.t('admin.projects'),     projects_path
+            %li.nav-head= link_to I18n.t('admin.project_new'),  new_project_path
+          %ul.nav.pull-right
             %li.nav-head= link_to I18n.t('shared.edit_settings'), edit_user_registration_path
-          - else
-            %li.nav-head= link_to I18n.t('pages.register'), new_user_registration_path
-
-          - if user_signed_in?
             %li.nav-head= link_to I18n.t('shared.logout'), destroy_user_session_path, :method => :delete
-          - else
+    
+        - else
+          %ul.nav
+            %li.nav-head= link_to I18n.t('pages.offer'),   translations_path
+            %li.nav-head= link_to I18n.t('pages.prices'),  languages_and_prices_path
+            %li.nav-head= link_to I18n.t('pages.contact'), contact_path
+          %ul.nav.pull-right
+            / %li.nav-head= link_to I18n.t('pages.register'), new_user_registration_path
             %li.nav-head= link_to I18n.t('shared.login'), new_user_session_path
