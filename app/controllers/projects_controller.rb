@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     status = @project.status_id
 
-    if @project.update_attributes(project_params)
+    if @project.update_attributes(update_params)
       log(@project, project_params, :updated, status)
       flash[:notice] = 'Project was successfully updated.'
     end
@@ -57,6 +57,15 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:customer_id, :name, :status_id)
+    end
+
+    def update_params
+      params.require(:project).permit(:name, :status_id)
+    end
+
+    #TODO: how to use this RESTful??
+    def payment_status_params
+      params.require(:project).permit(:paid)
     end
 
     #TODO: Modularize and work with named params

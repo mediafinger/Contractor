@@ -55,6 +55,7 @@ class CreateCustomersAndProjectsAndProductsAndUsers < ActiveRecord::Migration
     create_table :projects do |t|
       t.integer :customer_id
       t.string  :name
+      t.boolean :paid,          :default => false
       t.integer :status_id
       t.timestamps
     end

@@ -48,13 +48,13 @@ Product.create(:key => :voucher,     :unit => Unit.find_by_key(:euro),     :pric
 
 
 puts "Creating Statuses ..."
-Status.create(:key => :opportunity,         :name => "in Vorbereitung",                         :sorting => 1)
-Status.create(:key => :offer,               :name => "Angebot gestellt (KVA)",                  :sorting => 2)
-Status.create(:key => :in_progress,         :name => "in Bearbeitung",                          :sorting => 3)
-Status.create(:key => :done,                :name => "fertig",                                  :sorting => 4)
-Status.create(:key => :waiting_for_payment, :name => "Rechnung gestellt",                       :sorting => 5)
-Status.create(:key => :successful,          :name => "Erfolgreich beendet / Zahlung erhalten",  :sorting => 6)
-Status.create(:key => :canceled,            :name => "abgebrochen",                             :sorting => 7)
+Status.create(:key => :opportunity,  :name => "in Vorbereitung",            :sorting => 1)
+Status.create(:key => :offer,        :name => "Angebot gestellt",           :sorting => 2)
+Status.create(:key => :in_progress,  :name => "in Bearbeitung",             :sorting => 3)
+Status.create(:key => :done,         :name => "fertig",                     :sorting => 4)
+Status.create(:key => :finalization, :name => "Abrechnung",                 :sorting => 5)
+Status.create(:key => :successful,   :name => "Erfolgreich abgeschlossen",  :sorting => 6)
+Status.create(:key => :canceled,     :name => "abgebrochen",                :sorting => 7)
 
 
 puts "Creating Projects ..."
@@ -63,7 +63,7 @@ p2 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  
 p3 = Project.create(:customer => Customer.find_by_email("film@example.com"),    :name => "Erstauftrag",          :status => Status.find_by_key(:in_progress))
 p4 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Kleinkram",            :status => Status.find_by_key(:done))
 p5 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Februar",  :status => Status.find_by_key(:waiting_for_payment))
-p6 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Januar",   :status => Status.find_by_key(:successful))
+p6 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Januar",   :status => Status.find_by_key(:successful),  :paid => true)
 p7 = Project.create(:customer => Customer.find_by_name("--"),                   :name => "abgelehnt",            :status => Status.find_by_key(:canceled))
 
 
