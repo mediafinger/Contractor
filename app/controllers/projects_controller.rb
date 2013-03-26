@@ -4,6 +4,9 @@ class ProjectsController < BaseAuthenticationController
   before_filter :get_customers, :only => [:new, :create, :edit, :update]
   before_filter :get_statuses,  :only => [:new, :create, :edit, :update]
 
+  # edit, new method inherited from BaseAuthenticationController
+
+
   def index
     @projects = ProjectDecorator.decorate_collection(Project.by_status.by_name)
     respond_with @projects
@@ -11,10 +14,6 @@ class ProjectsController < BaseAuthenticationController
 
   def show
     @project = Project.find(params[:id]).decorate
-  end
-
-  def new
-    @project = Project.new
   end
 
   def create
@@ -25,10 +24,6 @@ class ProjectsController < BaseAuthenticationController
     end
 
     respond_with @project
-  end
-
-  def edit
-    @project = Project.find(params[:id])
   end
 
   def update
