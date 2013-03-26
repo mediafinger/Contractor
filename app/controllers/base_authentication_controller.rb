@@ -17,6 +17,7 @@ class BaseAuthenticationController < ApplicationController
   #
   def show
     instance_variable_set("@#{@model_name}", @klass.find(params[:id]))
+    respond_with instance_variable_get("@#{@model_name}")
   end
 
 
@@ -63,7 +64,11 @@ class BaseAuthenticationController < ApplicationController
 
     def set_model_name_and_klass
       @model_name = controller_name.singularize
-      @klass = @model_name.capitalize.constantize
+      @klass = capitalize_(@model_name).constantize
+    end
+
+    def capitalize_(name)
+      name.split("_").each{ |word| word.capitalize! }.join("")
     end
 
 end

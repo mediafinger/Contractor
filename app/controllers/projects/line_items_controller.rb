@@ -4,9 +4,8 @@ class Projects::LineItemsController < BaseAuthenticationController
   before_filter :get_products, :only => [:new, :create, :edit, :update]
   before_filter :get_project
 
-  def show
-    @line_item = LineItem.find(params[:id])
-  end
+  # edit, show method inherited from BaseAuthenticationController
+
 
   def new
     params[:selected_product_id] = params[:set_selected_to] || @products.first
@@ -24,10 +23,6 @@ class Projects::LineItemsController < BaseAuthenticationController
       params[:selected_product_id] = params[:line_item][:product_id] || @products.first
       render action: :new
     end
-  end
-
-  def edit
-    @line_item = LineItem.find(params[:id])
   end
 
   def update
