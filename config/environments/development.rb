@@ -35,6 +35,9 @@ Contractor::Application.configure do
     :password             =>  ENV['EMAIL_PASSWORD_SUPPORT_ONOSONO']
   }
 
+  # Set base url of Contractor
+  config.base_url = "http://localhost:3000/"
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 

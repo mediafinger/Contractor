@@ -32,6 +32,9 @@ Contractor::Application.configure do
   # Set default mailer for devise
   config.action_mailer.default_url_options = { :host => 'localhost' }
 
+  # Set base url of Contractor
+  config.base_url = "http://localhost/"
+
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 

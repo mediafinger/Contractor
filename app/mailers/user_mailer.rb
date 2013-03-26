@@ -8,8 +8,8 @@ class UserMailer < ActionMailer::Base
   #
 
   def activation_confirmation(user)
-    @token = user.authentication_token
-    @link = "http://localhost:3000/projects/?authentication_token=#{user.authentication_token}"
+    user_login_link(user)
+
     @greeting = "Thank you for choosing Contractor"
     @name = user.name
 
@@ -17,10 +17,9 @@ class UserMailer < ActionMailer::Base
   end
 
   def signin_token(user)
-    @token = user.authentication_token
-    @link = "http://localhost:3000/projects/?authentication_token=#{user.authentication_token}"
+    user_login_link(user)
     
-    @greeting = "Thank you for using Contractor!"
+    @greeting = "Thank you for using Contractor"
     @name = user.name
 
     mail to: user.email
@@ -32,4 +31,16 @@ class UserMailer < ActionMailer::Base
 
     mail to: user.email
   end
+
+
+  private
+
+    def user_login_link(user)
+      token     = user.authentication_token
+      base_url  = Contractor::Application.config.base_url
+      path      = "projects/"
+
+      @link = "#{base_url}#{path}?authentication_token=#{token}"
+    end
+
 end
