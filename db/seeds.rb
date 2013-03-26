@@ -63,7 +63,7 @@ p2 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  
 p3 = Project.create(:customer => Customer.find_by_email("film@example.com"),    :name => "Erstauftrag",          :status => Status.find_by_key(:in_progress))
 p4 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Kleinkram",            :status => Status.find_by_key(:done))
 p5 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Februar",  :status => Status.find_by_key(:waiting_for_payment))
-p6 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Januar",   :status => Status.find_by_key(:successful),  :paid => true)
+p6 = Project.create(:customer => Customer.find_by_email("glossa@example.com"),  :name => "Eppendorf - Januar",   :status => Status.find_by_key(:successful),  :paid => 1.month.ago)
 p7 = Project.create(:customer => Customer.find_by_name("--"),                   :name => "abgelehnt",            :status => Status.find_by_key(:canceled))
 
 

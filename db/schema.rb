@@ -108,10 +108,10 @@ ActiveRecord::Schema.define(:version => 20121229002621) do
   create_table "projects", :force => true do |t|
     t.integer  "customer_id"
     t.string   "name"
-    t.boolean  "paid",        :default => false
+    t.date     "paid"
     t.integer  "status_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "projects", ["customer_id"], :name => "index_projects_on_customer_id"
