@@ -1,6 +1,6 @@
 %h2= "ToDo List #{I18n.t 'pages.home'}"
 %ul
-  %li Add User Model
+  %li <del>Add User Model</del>
   %li Add Address Model
   %li
     Add Quotes and Invoices
@@ -9,6 +9,7 @@
       %li Add template / address data for Contractor
       %li Add Invoice Model
       %li Export Quotes and Invoices to PDF
+      %li Send Quotes and Invoices via Email
   %li
     Write some Specs
     %ul
@@ -16,7 +17,7 @@
   %li
     Integrate User Model
     %ul
-      %li Add Authentication
+      %li <del>Add Authentication</del>
       %li Add Authorization
       %li Add Admin Role
       %li Add Team Model
@@ -68,3 +69,20 @@
       %li Add Sorting and Filtering to all the Lists
       %li Make it look nice
   %li Go Live
+  %li 
+    Add Payment Options
+    %ul
+      %li Allow Users to pay for Contractor via CreditCard, DirectDebit (and PayPal)
+      %li Add Authentication and Authorization to Customer Model
+      %li Allow Customers to see their Projects
+      %li Allow Customers to access their Invoices
+      %li Allow Customers to pay their Invoices
+  %li 
+    Add Uploads and Downloads
+    %ul
+      %li Allow Users to add Documents to Projects
+      %li Save Invoices after creation
+      %li Allow Users to Download Documents
+      %li Allow Customers to add Documents to Projects
+      %li Allow Customers to Download Documents
+  %li Add CMS Functionality
