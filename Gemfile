@@ -20,6 +20,8 @@ gem 'libv8',                        '~> 3.11.8'
 gem 'therubyracer',                 '~> 0.11'  
 gem 'uglifier',                     '~> 1.3'
 
+gem 'pdfkit',                       '~> 0.5'
+
 group :assets do
   gem 'bootstrap-sass',             '~> 2.3'
   gem 'sass-rails',                 '~> 3.2'
@@ -28,13 +30,14 @@ end
 group :development do
   gem 'awesome_print',              '~> 1.1'
   gem 'letter_opener',              '~> 1.1'
+  gem 'unicorn',                    '~> 4.6'
 end
 
 group :development, :test do
   gem 'rspec-rails',                '~> 2.13'
   gem 'fabrication',                '~> 2.6'
   gem 'ffaker',                     '~> 1.15'
-  gem 'coveralls',                                  require: false
+  gem 'coveralls',                  '~> 0.6',               require: false
   # gem 'spring',                     '~> 0.0.7'
 end
 
