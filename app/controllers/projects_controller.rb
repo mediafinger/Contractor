@@ -14,6 +14,11 @@ class ProjectsController < BaseAuthenticationController
 
   def show
     @project = Project.find(params[:id]).decorate
+
+    respond_to do |format|
+      format.html { respond_with @project }
+      format.pdf  { render :text => PDFKit.new(project_url(@project)).to_pdf }
+    end
   end
 
   def create
@@ -38,6 +43,11 @@ class ProjectsController < BaseAuthenticationController
     respond_with @project
   end
 
+  # def download_pdf
+  #   html = render_to_string(:action => '../view/projects/index', :layout => false)
+  #   pdf = PDFKit.new(html)
+  #   send_data(pdf.to_pdf)
+  # end
 
   private
 
