@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true  # { :scope => :team }
 
   scope :by_name,     order('name ASC')
-  scope :is_active,   where(:active => true)
-  scope :is_archived, where(:active => false)
+  scope :is_active,   -> { where(:active => true) }
+  scope :is_archived, -> { where(:active => false) }
 
   after_create :send_confirmation_mail, :if => Proc.new { |u| u.active }
 

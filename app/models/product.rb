@@ -14,6 +14,6 @@ class Product < ActiveRecord::Base
   delegate :needs_digits?, :to => :unit,  :prefix => false, :allow_nil => false
 
   scope :by_key,      order('key ASC')
-  scope :is_active,   where(:active => true)
-  scope :is_archived, where(:active => false)
+  scope :is_active,   -> { where(:active => true) }
+  scope :is_archived, -> { where(:active => false) }
 end
