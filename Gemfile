@@ -32,9 +32,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails',                '~> 2.13'
-  gem 'ffaker',                     '~> 1.15'
   gem 'coveralls',                                  require: false
-  # gem 'spring',                     '~> 0.0.7'
 end
 
 
@@ -54,3 +52,8 @@ end
   #  gem 'carrierwave'
   #  gem 'active_admin'
   #  gem 'kaminari'
+
+  # development / test
+  # gem 'ffaker',                     '~> 1.15'
+  # gem 'factory_girl_rails',         '~> 4.2'
+  # gem 'spring',                     '~> 0.0.7'

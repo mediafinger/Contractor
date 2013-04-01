@@ -67,7 +67,6 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    ffaker (1.15.0)
     haml (4.0.1)
       tilt
     haml-rails (0.4)
@@ -180,7 +179,6 @@ DEPENDENCIES
   devise!
   draper (~> 1.1)
   execjs (~> 1.4)
-  ffaker (~> 1.15)
   haml-rails (~> 0.4)
   jquery-rails (~> 2.2)
   letter_opener (~> 1.1)
