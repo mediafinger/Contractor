@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   has_many    :line_items
   has_many    :projects, :through => :line_items
 
+  before_validation(:on => :create) { self.key = self.key.to_s.parameterize.underscore.to_sym }
   validates :key,     :presence => true, :uniqueness => true  # { :scope => :team }
   validates :price,   :presence => true, :numericality => true
   validates :unit_id, :presence => true
