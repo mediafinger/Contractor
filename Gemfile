@@ -3,16 +3,13 @@ source 'http://bundler-api.herokuapp.com'
 ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
-gem 'rails',                        '3.2.12'
-# gem 'rails',  :git => "git://github.com/rails/rails.git", :branch => "3-2-stable"
+gem 'rails',  :git => "git://github.com/rails/rails.git", :branch => "master"
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
-gem 'strong_parameters',            '~> 0.2'
 
-gem 'devise', :git => "https://github.com/plataformatec/devise.git"  #'~> 2.2'
-# gem 'cancan',                       '~> 1.6'
+gem 'devise', :git => "git://github.com/plataformatec/devise.git", :branch => "rails4"
 
-gem 'coffee-rails',                 '~> 3.2'
+gem 'coffee-rails',  :git => "git://github.com/rails/coffee-rails.git", :branch => "master"
 gem 'haml-rails',                   '~> 0.4'
 gem 'jquery-rails',                 '~> 2.2'
 gem 'execjs',                       '~> 1.4'
@@ -20,10 +17,9 @@ gem 'libv8',                        '~> 3.11.8'
 gem 'therubyracer',                 '~> 0.11'  
 gem 'uglifier',                     '~> 1.3'
 
-group :assets do
-  gem 'bootstrap-sass',             '~> 2.3'
-  gem 'sass-rails',                 '~> 3.2'
-end
+gem 'bootstrap-sass',             '~> 2.3'
+gem 'sass-rails',  :git => "git://github.com/rails/sass-rails.git", :branch => "master"
+
 
 group :development do
   gem 'awesome_print',              '~> 1.1'
