@@ -64,7 +64,6 @@ Contractor::Application.configure do
   config.generators do |g|
     g.template_engine :haml
     g.helper false
-    g.test_framework :rspec, :fixture =>true, :view_specs => false, :helper_specs => false
-    g.fixture_replacement :fabrication
+    g.test_framework :rspec, :fixture =>false, :view_specs => false, :helper_specs => false
   end
 end

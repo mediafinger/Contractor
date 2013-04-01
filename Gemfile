@@ -32,7 +32,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails',                '~> 2.13'
-  gem 'fabrication',                '~> 2.6'
   gem 'ffaker',                     '~> 1.15'
   gem 'coveralls',                                  require: false
   # gem 'spring',                     '~> 0.0.7'
