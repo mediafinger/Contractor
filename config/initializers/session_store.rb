@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file.
 
-# Contractor::Application.config.session_store :cookie_store, key: '_contractor_session'
-Contractor::Application.config.session_store :upgrade_signature_to_encryption_cookie_store, key: '_contractor_session'
+Contractor::Application.config.session_store :cookie_store, key: '_contractor_session'
+# Contractor::Application.config.session_store :upgrade_signature_to_encryption_cookie_store, key: '_contractor_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
