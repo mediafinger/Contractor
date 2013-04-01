@@ -3,22 +3,23 @@ source 'http://bundler-api.herokuapp.com'
 ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
-gem 'rails',  :git => "git://github.com/rails/rails.git", :branch => "master"
+gem 'rails',          :git => "git://github.com/rails/rails.git",             :branch => "master"
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
 
-gem 'devise', :git => "git://github.com/plataformatec/devise.git", :branch => "rails4"
+gem 'protected_attributes'
+gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "rails4"
 
-gem 'coffee-rails',  :git => "git://github.com/rails/coffee-rails.git", :branch => "master"
+gem 'coffee-rails',   :git => "git://github.com/rails/coffee-rails.git",      :branch => "master"
 gem 'haml-rails',                   '~> 0.4'
 gem 'jquery-rails',                 '~> 2.2'
 gem 'execjs',                       '~> 1.4'
-gem 'libv8',                        '~> 3.11.8'
-gem 'therubyracer',                 '~> 0.11'  
+gem 'libv8',                        '~> 3.16'
+gem 'therubyracer',   :git => "git://github.com/cowboyd/therubyracer",        :branch => "master"
 gem 'uglifier',                     '~> 1.3'
 
-gem 'bootstrap-sass',             '~> 2.3'
-gem 'sass-rails',  :git => "git://github.com/rails/sass-rails.git", :branch => "master"
+gem 'bootstrap-sass',               '~> 2.3'
+gem 'sass-rails',     :git => "git://github.com/rails/sass-rails.git",        :branch => "master"
 
 
 group :development do
