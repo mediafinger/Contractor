@@ -7,7 +7,7 @@ class Status < ActiveRecord::Base
   validates :sorting, :presence => true, :uniqueness => true, # { :scope => :team }
                         :numericality => { :only_integer => true, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 10 }
 
-  scope :by_order, order('sorting ASC')
+  scope :by_order, -> { order('sorting ASC') }
 
 
   def status_desc
