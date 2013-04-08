@@ -16,7 +16,7 @@ gem 'jquery-rails',                 '~> 2.2'
 gem 'execjs',                       '~> 1.4'
 gem 'libv8',                        '~> 3.16'
 gem 'therubyracer',   :git => "git://github.com/cowboyd/therubyracer",        :branch => "master"
-gem 'uglifier',                     '~> 1.3'
+gem 'uglifier',                     '~> 2.0'
 
 gem 'bootstrap-sass',               '~> 2.3'
 gem 'sass-rails',     :git => "git://github.com/rails/sass-rails.git",        :branch => "master"
@@ -29,7 +29,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails',                '~> 2.13'
-  gem 'coveralls',                                  require: false
+  gem 'coveralls',                  '~> 0.6',        require: false
 end
 
 
