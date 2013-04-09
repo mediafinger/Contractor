@@ -13,8 +13,8 @@ end
 
 
 puts "Creating Users ..."
-User.create!(name: 'Andy',  email: "andy@mediafinger.com",    birthday: "19770605", active: false, active: true, admin: true)
-User.create!(name: 'Micky', email: "michela.donda@gmail.com", birthday: "19790926", active: false, active: false)
+User.create!(name: 'Andy',  email: "andy@mediafinger.com",  birthday: "19770605", active: false, active: true, admin: true)
+User.create!(name: 'Micky', email: "micky@example.com",     birthday: "19790926", active: false, active: false)
 
 
 puts "Creating Customers ..."
@@ -25,7 +25,7 @@ Customer.create!(name: 'Glossa Group',  email: "glossa@example.com")
 
 puts "Creating Addresses ..."
 Address.create!(city: "Barcelona", owner_type: "User",     owner: User.find_by(email: "andy@mediafinger.com"),    mobile: "+34688988550")
-Address.create!(city: "Barcelona", owner_type: "User",     owner: User.find_by(email: "michela.donda@gmail.com"), company_name: "DondaLations")
+Address.create!(city: "Barcelona", owner_type: "User",     owner: User.find_by(email: "micky@example.com"), company_name: "DondaLations")
 Address.create!(city: "Hamburg",   owner_type: "Customer", owner: Customer.find_by(email: "glossa@example.com"),  company_name: "Glossar Group Worldwide GmbH")
 Address.create!(city: "Barcelona", owner_type: "Customer", owner: Customer.find_by(email: "film@example.com"),    company_name: "Film & TV Schnitt und Vertonungs AG")
 
@@ -93,6 +93,6 @@ LineItem.create!(project: p7, product: Product.find_by(key: :trans_de_it),  quan
 
 
 puts "Creating Invoices ..."
-Invoice.create!(sent: 1.week.ago, project: p1, kind: :offer,   until: 1.day.ago,       user: User.find_by(email: "michela.donda@gmail.com"))
-Invoice.create!(sent: 1.week.ago, project: p5, kind: :quote,   until: 4.days.ago,      user: User.find_by(email: "michela.donda@gmail.com"))
-Invoice.create!(sent: 1.day.ago,  project: p5, kind: :invoice, until: 1.week.from_now, user: User.find_by(email: "michela.donda@gmail.com")) 
+Invoice.create!(sent: 1.week.ago, project: p1, kind: :offer,   until: 1.day.ago,       user: User.find_by(email: "micky@example.com"))
+Invoice.create!(sent: 1.week.ago, project: p5, kind: :quote,   until: 4.days.ago,      user: User.find_by(email: "micky@example.com"))
+Invoice.create!(sent: 1.day.ago,  project: p5, kind: :invoice, until: 1.week.from_now, user: User.find_by(email: "micky@example.com"))
