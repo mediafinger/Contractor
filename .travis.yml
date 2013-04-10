@@ -17,8 +17,9 @@ before_script:
   - "bundle exec rake db:migrate"
   - "bundle exec rake db:test:prepare"
 
-script: "bundle exec rake"
+script: "rake"
 
 branches:
   only:
     - master
+    - rails4
