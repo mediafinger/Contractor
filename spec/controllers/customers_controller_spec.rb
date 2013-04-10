@@ -22,11 +22,17 @@
 require "spec_helper"
 
 describe CustomersController do
+  before :all do
+    @user = User.create(name: "Andy", email: "admin@example.com")
+  end
 
-  let (:user) { User.create(name: "Andy", email: "admin@example.com") }
+  after :all do
+    Customer.destroy_all
+    User.destroy_all
+  end
 
   before :each do 
-    sign_in user
+    sign_in @user
   end
 
   describe "GET #index" do

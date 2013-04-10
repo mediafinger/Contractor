@@ -31,10 +31,11 @@ describe User do
       end
 
       it "does not save the user when email exist already" do
-        User.create(name: "Willi", email: "willi@wonker.com")
+        willi = User.create(name: "Willi", email: "willi@wonker.com")
 
         user = User.new(name: "Wonker", email: "willi@wonker.com")
         user.valid?.should eq false
+        willi.destroy.should eq willi
       end
     end
   end
@@ -42,7 +43,7 @@ describe User do
   describe "scopes" do
     context "when retrieving all Users" do
       it "returns the Users by creation date" do
-        User.all.should == [@u1, @u2]
+        User.all.order('created_at ASC').should == [@u1, @u2]
       end
     end
 

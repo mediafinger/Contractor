@@ -31,10 +31,11 @@ describe Customer do
       end
 
       it "does not save the customer when email exist already" do
-        Customer.create(name: "Willi", email: "willi@wonker.com")
+        willi = Customer.create(name: "Willi", email: "willi@wonker.com")
 
         customer = Customer.new(name: "Wonker", email: "willi@wonker.com")
         customer.valid?.should eq false
+        willi.destroy.should eq willi
       end
     end
   end
