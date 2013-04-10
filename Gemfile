@@ -6,8 +6,6 @@ gem 'rake',                         '~> 10.0.3'
 gem 'rails',          :git => "git://github.com/rails/rails.git",             :branch => "master"
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
-
-gem 'protected_attributes'
 gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "rails4"
 
 gem 'coffee-rails',   :git => "git://github.com/rails/coffee-rails.git",      :branch => "master"
