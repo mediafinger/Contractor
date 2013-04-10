@@ -20,10 +20,6 @@ describe Product do
     end
 
     context "when attributes are invalid" do
-      after :each do
-        Product.find_by(key: "my_key").destroy
-      end
-
       it "does not save the product without a key" do
         product = Product.new(price: 19.95, unit_id: 1)
         product.valid?.should eq false
@@ -45,10 +41,11 @@ describe Product do
       end
 
       it "does not save the product when key exist already" do
-        Product.create(key: "my_key", price: 19.95, unit_id: 1)
+        my_key = Product.create(key: "my_key", price: 19.95, unit_id: 1)
 
         product = Product.new(key: "my_key", price: 9.99, unit_id: 1)
         product.valid?.should eq false
+        my_key.destroy.should eq my_key
       end
     end
   end
