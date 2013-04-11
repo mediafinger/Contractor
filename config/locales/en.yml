@@ -4,6 +4,11 @@ en:
     products: Alle Produkte
     projects: Alle Projekte
     project_new: Neues Projekt
+  login:
+    account_not_yet_active: Dein Account ist noch nicht aktiv - bitte wende Dich an Deinen Admin.
+    click_link_in_mail: Bitte schau in deine Emails und clicke auf den Link, um Dich einzuloggen!
+    email_unknown: Unter dieser Email existiert kein User - hast Du Dich vertippt?
+
   pages:
     calendar: Verfügbarkeit
     contact: Kontakt
