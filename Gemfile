@@ -25,6 +25,7 @@ end
 group :development do
   gem 'awesome_print',              '~> 1.1'
   gem 'letter_opener',              '~> 1.1'
+  gem 'pry'
 end
 
 group :development, :test do
