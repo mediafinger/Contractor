@@ -15,7 +15,7 @@ class LineItem < ActiveRecord::Base
   delegate :price,          :to => :product,  :prefix => true,  :allow_nil => false
   delegate :unit,           :to => :product,  :prefix => true,  :allow_nil => false
 
-  scope :by_product,   :joins => :product,   :order => "products.key"
+  scope :by_product,   lambda { joins(:product).order("products.key") }
   scope :in_project,   proc { |project| where(:project_id => project) }
 
 

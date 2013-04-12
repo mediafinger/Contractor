@@ -13,7 +13,7 @@ class Invoice < ActiveRecord::Base
 
   scope :by_date_sent,    -> { order("sent ASC") }
   scope :by_date_until,   -> { order("until ASC") }
-  scope :by_customer,     :joins => :customer, :order => "customers.name"
+  scope :by_customer,     lambda { joins(:customer).order("customers.name") }
   scope :is_of_kind,      proc { |type| where(:kind => type) }
   scope :is_waiting,      -> { where("open = ? AND accepted = ?", true,  false) }
   scope :is_closed,       -> { where("open = ? AND accepted = ?", false, false) }

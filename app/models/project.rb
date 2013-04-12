@@ -16,10 +16,10 @@ class Project < ActiveRecord::Base
   delegate :name,         :to => :status,   :prefix => true,  :allow_nil => false
   delegate :status_desc,  :to => :status,   :prefix => false, :allow_nil => false
 
-  scope :by_name,     -> { order("name ASC") }
-  scope :by_customer, :joins => :customer, :order => "customers.name"
-  scope :by_status,   :joins => :status,   :order => "statuses.sorting"
-  scope :in_status,   proc { |status| where(:status_id => status) }
+  scope :by_name,       -> { order("name ASC") }
+  scope :by_customer,   lambda { joins(:customer).order("customers.name") }
+  scope :by_status,     lambda { joins(:status).order("statuses.sorting") }
+  scope :in_status,     proc { |status| where(:status_id => status) }
 
 
   def line_items_sorted_by_product_unit
