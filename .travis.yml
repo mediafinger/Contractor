@@ -22,4 +22,3 @@ script: "rake"
 branches:
   only:
     - master
-    - rails4
