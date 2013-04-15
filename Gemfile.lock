@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: ce37c301ff91f0d59ff91715f0c36e0ee285fb11
+  revision: c6189696772925ae0c608fdd8d535f735e8e114e
   branch: rails4
   specs:
     devise (2.2.3)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: e2e9eed3dc6205ec0f9925a8c452067fae9a552d
+  revision: ae4a02a7f02042514d50e2024f9751afbdb21cf0
   branch: master
   specs:
     actionmailer (4.0.0.beta1)
@@ -86,7 +86,7 @@ GEM
     activerecord-deprecated_finders (0.0.3)
     addressable (2.3.3)
     arel (4.0.0.beta2)
-    atomic (1.1.6)
+    atomic (1.1.7)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
@@ -119,7 +119,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
-    hike (1.2.1)
+    hike (1.2.2)
     i18n (0.6.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -135,7 +135,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.22)
-    minitest (4.7.0)
+    minitest (4.7.1)
     multi_json (1.7.2)
     orm_adapter (0.4.0)
     pg (0.15.1)
@@ -144,6 +144,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    puma (1.6.3)
+      rack (~> 1.2)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -169,7 +171,7 @@ GEM
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
     slop (3.4.4)
-    sprockets (2.9.0)
+    sprockets (2.9.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -181,7 +183,7 @@ GEM
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
-    tilt (1.3.6)
+    tilt (1.3.7)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -209,6 +211,7 @@ DEPENDENCIES
   libv8 (~> 3.16)
   pg (~> 0.14)
   pry
+  puma (~> 1.6)
   rails!
   rake (~> 10.0.3)
   rspec-rails (~> 2.13)
