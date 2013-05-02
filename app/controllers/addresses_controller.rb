@@ -41,10 +41,10 @@ class AddressesController < BaseAuthenticationController
     end
 
     def create_params
-      params.require(:address)
+      params.require(:address).permit(:owner_id, :owner_type, :city, :tax_permill)
     end
 
     def update_params
-      params.require(:address)
+      params.require(:address).permit(:city, :tax_permill)
     end
 end
