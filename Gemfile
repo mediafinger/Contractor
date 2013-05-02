@@ -4,7 +4,7 @@ ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
 gem 'puma',                         '~> 1.6'
-gem 'rails',          :git => "git://github.com/rails/rails.git",             :branch => "master"
+gem 'rails',          :git => "git://github.com/rails/rails.git",             :branch => "4-0-stable"
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.1'
 gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "rails4"
