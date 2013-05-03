@@ -1,13 +1,14 @@
 postgresql: &postgresql
   adapter: postgresql
+  encoding: unicode
   username: <%= ENV['CONTRACTOR_DB_USERNAME_POSTGRES'] %>
   password: <%= ENV['CONTRACTOR_DB_PASSWORD_POSTGRES'] %>
   min_messages: ERROR
 
 defaults: &defaults
   pool: 16
-  timeout: 3000
-  host: localhost
+  # timeout: 3000
+  # host: localhost
   <<: *postgresql
 
 development:

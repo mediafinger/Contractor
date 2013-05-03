@@ -13,6 +13,7 @@ gem 'coffee-rails',   :git => "git://github.com/rails/coffee-rails.git",      :b
 gem 'sass-rails',     :git => "git://github.com/rails/sass-rails.git",        :branch => "master"
 gem 'haml-rails',                   '~> 0.4'
 gem 'bootstrap-sass',               '~> 2.3'
+gem 'turbolinks',                   '~> 1.1'
 
 # to speed Travis-CI up
 group :development, :production do
