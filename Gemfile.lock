@@ -1,35 +1,35 @@
 GIT
   remote: git://github.com/cowboyd/therubyracer
-  revision: 1db8b74c6446469f153b9343f5a256cf64ca750a
+  revision: 0c8ab86dc15ff8e1637920c790412dd4991b3598
   branch: master
   specs:
-    therubyracer (0.11.1)
+    therubyracer (0.12.0beta1)
       libv8 (~> 3.16.14.0)
       ref
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: c6189696772925ae0c608fdd8d535f735e8e114e
-  branch: rails4
+  revision: ab77e08690b7d4f6bbd3ed53370117ba58b35085
+  branch: master
   specs:
-    devise (2.2.3)
+    devise (3.0.0.rc)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (~> 4.0.0.beta)
+      railties (>= 3.2.6, < 5)
       warden (~> 1.2.1)
 
 GIT
   remote: git://github.com/rails/coffee-rails.git
-  revision: 948fef30464235e7588e34faa513b448a00c0e6b
+  revision: cbc4a6f571e87f68d272b9a377db3fb3307464ab
   branch: master
   specs:
-    coffee-rails (4.0.0.beta1)
+    coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 30dcd487837013e13c8d31640d179ba03f42c5a9
+  revision: 19117ff392d34114c995d03c508ef650d1b9a76d
   branch: 4-0-stable
   specs:
     actionmailer (4.0.0.rc1)
@@ -71,22 +71,21 @@ GIT
 
 GIT
   remote: git://github.com/rails/sass-rails.git
-  revision: d435679b0fe528b954a9abd0059f975d94707574
+  revision: 33799418f104c961b1ce41452e77cf1e04930755
   branch: master
   specs:
-    sass-rails (4.0.0.beta1)
+    sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
-      sprockets-rails (~> 2.0.0.rc0)
-      tilt (~> 1.3)
+      sprockets-rails (~> 2.0.0.rc4)
 
 GEM
   remote: http://bundler-api.herokuapp.com/
   specs:
     activerecord-deprecated_finders (1.0.2)
-    addressable (2.3.3)
+    addressable (2.3.4)
     arel (4.0.0)
-    atomic (1.1.8)
+    atomic (1.1.9)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
@@ -98,14 +97,14 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     colorize (0.5.8)
-    coveralls (0.6.5)
+    coveralls (0.6.7)
       colorize
       multi_json (~> 1.3)
       rest-client
       simplecov (>= 0.7)
       thor
-    diff-lcs (1.2.2)
-    draper (1.2.0)
+    diff-lcs (1.2.4)
+    draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
@@ -136,16 +135,16 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     minitest (4.7.4)
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
-    pry (0.9.12)
+    pry (0.9.12.1)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    puma (1.6.3)
-      rack (~> 1.2)
+    puma (2.0.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -158,14 +157,14 @@ GEM
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.13.1)
-    rspec-rails (2.13.0)
+    rspec-rails (2.13.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    sass (3.2.7)
+    sass (3.2.8)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -205,7 +204,7 @@ DEPENDENCIES
   coffee-rails!
   coveralls (~> 0.6)
   devise!
-  draper (~> 1.1)
+  draper (~> 1.2)
   execjs (~> 1.4)
   haml-rails (~> 0.4)
   jquery-rails (~> 2.2)
@@ -213,7 +212,7 @@ DEPENDENCIES
   libv8 (~> 3.16)
   pg (~> 0.14)
   pry
-  puma (~> 1.6)
+  puma (~> 2.0)
   rails!
   rake (~> 10.0.3)
   rspec-rails (~> 2.13)

@@ -3,11 +3,11 @@ source 'http://bundler-api.herokuapp.com'
 ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
-gem 'puma',                         '~> 1.6'
+gem 'puma',                         '~> 2.0'
 gem 'rails',          :git => "git://github.com/rails/rails.git",             :branch => "4-0-stable"
 gem 'pg',                           '~> 0.14'
-gem 'draper',                       '~> 1.1'
-gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "rails4"
+gem 'draper',                       '~> 1.2'
+gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "master"
 
 gem 'coffee-rails',   :git => "git://github.com/rails/coffee-rails.git",      :branch => "master"
 gem 'sass-rails',     :git => "git://github.com/rails/sass-rails.git",        :branch => "master"
