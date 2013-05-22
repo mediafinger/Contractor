@@ -4,15 +4,15 @@ ruby '2.0.0'
 
 gem 'rake',                         '~> 10.0.3'
 gem 'puma',                         '~> 2.0'
-gem 'rails',          :git => "git://github.com/rails/rails.git",             :branch => "4-0-stable"
+gem 'rails',                        '= 4.0.0.rc1'
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.2'
 gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "master"
 
-gem 'coffee-rails',   :git => "git://github.com/rails/coffee-rails.git",      :branch => "master"
-gem 'sass-rails',     :git => "git://github.com/rails/sass-rails.git",        :branch => "master"
+gem 'coffee-rails',                 '~> 4.0'
+gem 'sass-rails',                   '~> 4.0.0.rc1'
 gem 'haml-rails',                   '~> 0.4'
-gem 'bootstrap-sass',               '~> 2.3'
+gem 'bootstrap-sass',               '= 2.3.1.0'
 gem 'turbolinks',                   '~> 1.1'
 
 # to speed Travis-CI up
