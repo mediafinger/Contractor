@@ -7,7 +7,8 @@ gem 'puma',                         '~> 2.0'
 gem 'rails',                        '= 4.0.2'
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.2'
-gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "master"
+# gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "master"
+gem 'devise',                       '= 3.0.4'
 
 gem 'coffee-rails',                 '~> 4.0'
 gem 'sass-rails',                   '~> 4.0.0'

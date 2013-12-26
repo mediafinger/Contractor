@@ -181,9 +181,13 @@ Devise.setup do |config|
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
 
-  # ==> Configuration for :token_authenticatable
-  # Defines name of the authentication token params key
+  # DEPRECTATED:
+  # # ==> Configuration for :token_authenticatable
+  # # Defines name of the authentication token params key
   config.token_authentication_key = :authentication_token
+
+  # Defines the secret key - devise 3.2.2
+  # config.secret_key = ENV['CONTRACTOR_DEVISE_SECRET_KEY']
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
