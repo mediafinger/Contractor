@@ -4,13 +4,13 @@ ruby '2.1.0'
 
 gem 'rake',                         '~> 10.0.3'
 gem 'puma',                         '~> 2.0'
-gem 'rails',                        '= 4.0.0'
+gem 'rails',                        '= 4.0.2'
 gem 'pg',                           '~> 0.14'
 gem 'draper',                       '~> 1.2'
 gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "master"
 
 gem 'coffee-rails',                 '~> 4.0'
-gem 'sass-rails',                   '~> 4.0.0.rc2'
+gem 'sass-rails',                   '~> 4.0.0'
 gem 'haml-rails',                   '~> 0.4'
 gem 'bootstrap-sass',               '= 2.3.1.0'
 gem 'turbolinks',                   '~> 1.2'
@@ -18,10 +18,9 @@ gem 'turbolinks',                   '~> 1.2'
 # to speed Travis-CI up
 group :development, :production do
   gem 'jquery-rails',                 '~> 3.0'
-  # gem 'jquery-rails',                 '~> 2.2'
   gem 'execjs',                       '~> 1.4'
   gem 'libv8',                        '~> 3.16'
-  gem 'therubyracer',   :git => "git://github.com/cowboyd/therubyracer",        :branch => "master"
+  gem 'therubyracer',                 '~> 0.12'
   gem 'uglifier',                     '~> 2.0'
 end
 
