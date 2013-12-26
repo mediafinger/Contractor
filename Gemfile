@@ -2,24 +2,24 @@
 source 'http://bundler-api.herokuapp.com'
 ruby '2.1.0'
 
-gem 'rake',                         '~> 10.0.3'
+gem 'rake',                         '~> 10.1'
 gem 'puma',                         '~> 2.0'
 gem 'rails',                        '= 4.0.2'
 gem 'pg',                           '~> 0.14'
-gem 'draper',                       '~> 1.2'
+gem 'draper',                       '~> 1.3'
 # gem 'devise',         :git => "git://github.com/plataformatec/devise.git",    :branch => "master"
 gem 'devise',                       '= 3.0.4'
 
 gem 'coffee-rails',                 '~> 4.0'
 gem 'sass-rails',                   '~> 4.0.0'
-gem 'haml-rails',                   '~> 0.4'
+gem 'haml-rails',                   '~> 0.5'
 gem 'bootstrap-sass',               '= 2.3.1.0'
-gem 'turbolinks',                   '~> 1.2'
+gem 'turbolinks',                   '~> 2.1'
 
 # to speed Travis-CI up
 group :development, :production do
   gem 'jquery-rails',                 '~> 3.0'
-  gem 'execjs',                       '~> 1.4'
+  gem 'execjs',                       '~> 2.0'
   gem 'libv8',                        '~> 3.16'
   gem 'therubyracer',                 '~> 0.12'
   gem 'uglifier',                     '~> 2.0'
