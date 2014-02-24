@@ -176,7 +176,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print (~> 1.1)
+  awesome_print (~> 1.2)
   bootstrap-sass (= 2.3.1.0)
   coffee-rails (~> 4.0)
   coveralls (~> 0.6)
@@ -185,15 +185,15 @@ DEPENDENCIES
   execjs (~> 2.0)
   haml-rails (~> 0.5)
   jquery-rails (~> 3.1)
-  letter_opener (~> 1.1)
+  letter_opener (~> 1.2)
   libv8 (~> 3.16)
-  pg (~> 0.14)
-  pry
-  puma (~> 2.0)
+  pg (~> 0.17)
+  pry (~> 0.9)
+  puma (~> 2.7)
   rails (= 4.0.3)
   rake (~> 10.1)
-  rspec-rails (~> 2.13)
+  rspec-rails (~> 2.14)
   sass-rails (~> 4.0.0)
   therubyracer (~> 0.12)
-  turbolinks (~> 2.1)
-  uglifier (~> 2.0)
+  turbolinks (~> 2.2)
+  uglifier (~> 2.4)
