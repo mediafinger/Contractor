@@ -1,6 +1,6 @@
 # source 'https://rubygems.org'
 source 'http://bundler-api.herokuapp.com'
-ruby '2.1.0'
+ruby '2.1.1'
 
 gem 'rake',                         '~> 10.1'
 gem 'puma',                         '~> 2.0'
