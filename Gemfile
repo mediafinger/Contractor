@@ -37,7 +37,6 @@ group :development, :test do
 end
 
 
-  # gem 'thin',               '~> 1.3'
   # gem 'foreman',            '~> 0.50'
   # gem 'omniauth',           '~> 1.1'
   # gem 'omniauth-dropbox',   '~> 0.2'
