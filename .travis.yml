@@ -1,11 +1,10 @@
 language: ruby
 rvm:
-  - ruby-head
-#  - ruby-1.9.3
-gemfile: Gemfile  
-bundler_args: "--without development production" 
+  - ruby-2.1.1
+gemfile: Gemfile
+bundler_args: "--without development production"
 
-env: 
+env:
   - DB=postgresql
 
 # matrix:
